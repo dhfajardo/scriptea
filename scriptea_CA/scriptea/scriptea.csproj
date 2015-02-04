@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF7158FE-D7BF-4A85-8EAF-95136D90B7E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>scriptea</RootNamespace>
+    <AssemblyName>scriptea</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Lexical\Input\InputStream.cs" />
+    <Compile Include="Lexical\Input\Lexeme.cs" />
+    <Compile Include="Lexical\KeyWords.cs" />
+    <Compile Include="Lexical\Lexer.cs" />
+    <Compile Include="Lexical\LexerException.cs" />
+    <Compile Include="Lexical\PunctuationMarks.cs" />
+    <Compile Include="Lexical\States\StateAnd.cs" />
+    <Compile Include="Lexical\States\StateAssig.cs" />
+    <Compile Include="Lexical\States\StateCommentBlock1.cs" />
+    <Compile Include="Lexical\States\StateCommentBlock2.cs" />
+    <Compile Include="Lexical\States\StateCommentLine.cs" />
+    <Compile Include="Lexical\States\StateDigit.cs" />
+    <Compile Include="Lexical\States\StateDiv.cs" />
+    <Compile Include="Lexical\States\StateEquiv.cs" />
+    <Compile Include="Lexical\States\StateFloat1.cs" />
+    <Compile Include="Lexical\States\StateFloat2.cs" />
+    <Compile Include="Lexical\States\StateGreaterThan.cs" />
+    <Compile Include="Lexical\States\StateId.cs" />
+    <Compile Include="Lexical\States\InitialState.cs" />
+    <Compile Include="Lexical\States\IState.cs" />
+    <Compile Include="Lexical\States\StateLessThan.cs" />
+    <Compile Include="Lexical\States\StateMod.cs" />
+    <Compile Include="Lexical\States\StateMul.cs" />
+    <Compile Include="Lexical\States\StateNotEquiv.cs" />
+    <Compile Include="Lexical\States\StateNot.cs" />
+    <Compile Include="Lexical\States\StateOr.cs" />
+    <Compile Include="Lexical\States\StateString1.cs" />
+    <Compile Include="Lexical\States\StateString2.cs" />
+    <Compile Include="Lexical\States\StateSub.cs" />
+    <Compile Include="Lexical\States\StateSum.cs" />
+    <Compile Include="Lexical\Token.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

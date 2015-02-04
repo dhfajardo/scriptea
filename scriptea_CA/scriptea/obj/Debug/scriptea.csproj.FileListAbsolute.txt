@@ -1,0 +1,10 @@
+C:\Users\hnfajardoa\documents\visual studio 2013\Projects\scriptea_CA\scriptea\bin\Debug\scriptea.dll
+C:\Users\hnfajardoa\documents\visual studio 2013\Projects\scriptea_CA\scriptea\bin\Debug\scriptea.pdb
+C:\Users\hnfajardoa\documents\visual studio 2013\Projects\scriptea_CA\scriptea\obj\Debug\scriptea.dll
+C:\Users\hnfajardoa\documents\visual studio 2013\Projects\scriptea_CA\scriptea\obj\Debug\scriptea.pdb
+C:\Users\hnfajardoa\documents\visual studio 2013\Projects\scriptea_CA\scriptea\obj\Debug\scriptea.csprojResolveAssemblyReference.cache
+C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\bin\Debug\scriptea.dll
+C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\bin\Debug\scriptea.pdb
+C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.dll
+C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.pdb
+C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.csprojResolveAssemblyReference.cache
