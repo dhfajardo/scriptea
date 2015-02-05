@@ -16,6 +16,10 @@ namespace scriptea.Lexical.States
                 pInput.ConsumeSymbol();
                 return new StateCommentBlock2().ProcessState(pInput, pLexeme);
             }
+            else if (pInput.CurrentSymbol == (char)0)
+            {
+                throw new LexerException("Lexical Error: Was expected */', Row: " + pInput.Column + ", Column: " + pInput.CurrentColumn);
+            }
             else
             {
                 pLexeme.addSymbol(pInput.CurrentSymbol);

@@ -67,7 +67,11 @@ namespace scriptea.Lexical.States
                     throw new LexerException("Symbol: " + pInput.CurrentSymbol + " not recognized");
                 }
             }
-            if(pInput.CurrentSymbol == '\'')
+            else if (pInput.CurrentSymbol == (char)0)
+            {
+                throw new LexerException("Lexical Error: Was expected \', Row: " + pInput.Column + ", Column: " + pInput.CurrentColumn);
+            }
+            else if(pInput.CurrentSymbol == '\'')
             {
                 //pLexeme.addSymbol(pInput.CurrentSymbol);
                 pInput.ConsumeSymbol();

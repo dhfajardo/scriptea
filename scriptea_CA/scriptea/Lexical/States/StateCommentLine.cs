@@ -10,7 +10,7 @@ namespace scriptea.Lexical.States
     {
         public Token ProcessState(InputStream pInput, Lexeme pLexeme)
         {
-            if(pInput.CurrentSymbol == '\n' || pInput.CurrentSymbol == '\r')
+            if(pInput.CurrentSymbol == '\n' || pInput.CurrentSymbol == '\r' || pInput.CurrentSymbol == (char)0)
             {
                 //pLexeme.addSymbol(pInput.CurrentSymbol);
                 //pInput.ConsumeSymbol();
