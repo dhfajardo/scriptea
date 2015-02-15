@@ -24,6 +24,36 @@ namespace scriptea.Lexical.States
                 pInput.ConsumeSymbol();
                 return new Token { Type = _token, LexemeVal = pLexeme.Value, Row = pInput.Row, Column = pInput.Column };
             }
+            else if (pInput.CurrentSymbol == '~')
+            {
+                pLexeme.addSymbol(pInput.CurrentSymbol);
+                pInput.ConsumeSymbol();
+                return new Token
+                {
+                    Type = TokenType.OpNotBit,
+                    LexemeVal = pLexeme.Value,
+                    Row = pInput.Row,
+                    Column = pInput.Column
+                };
+            }
+            else if (pInput.CurrentSymbol == '?')
+            {
+                pLexeme.addSymbol(pInput.CurrentSymbol);
+                pInput.ConsumeSymbol();
+                return new Token
+                {
+                    Type = TokenType.OpTernary,
+                    LexemeVal = pLexeme.Value,
+                    Row = pInput.Row,
+                    Column = pInput.Column
+                };
+            }
+            else if (pInput.CurrentSymbol == '^')
+            {
+                pLexeme.addSymbol(pInput.CurrentSymbol);
+                pInput.ConsumeSymbol();
+                return new StateBitwiseXOr().ProcessState(pInput, pLexeme);
+            }
             else if(char.IsDigit(pInput.CurrentSymbol))
             {
                 pLexeme.addSymbol(pInput.CurrentSymbol);
@@ -59,7 +89,7 @@ namespace scriptea.Lexical.States
                 pLexeme.addSymbol(pInput.CurrentSymbol);
                 pInput.ConsumeSymbol();
                 return new StateMod().ProcessState(pInput, pLexeme);
-            }
+            }        
             else if (pInput.CurrentSymbol == '!')
             {
                 pLexeme.addSymbol(pInput.CurrentSymbol);

@@ -16,9 +16,30 @@ namespace scriptea.Lexical.States
                 pInput.ConsumeSymbol();
                 return new Token { Type = TokenType.OpAnd, LexemeVal = pLexeme.Value, Row = pInput.Row, Column = pInput.Column };
             }
+            else if (pInput.CurrentSymbol == '=')
+            {
+                pLexeme.addSymbol(pInput.CurrentSymbol);
+                pInput.ConsumeSymbol();
+                return new Token
+                {
+                    Type = TokenType.OpAssigBitwiseAnd,
+                    LexemeVal = pLexeme.Value,
+                    Row = pInput.Row,
+                    Column = pInput.Column
+                };
+            }
             else
             {
-                throw new LexerException("Symbol: " + pInput.CurrentSymbol + " not recognized");
+                pLexeme.addSymbol(pInput.CurrentSymbol);
+                pInput.ConsumeSymbol();
+                return new Token
+                {
+                    Type = TokenType.OpBitwiseAnd,
+                    LexemeVal = pLexeme.Value,
+                    Row = pInput.Row,
+                    Column = pInput.Column
+                };
+                //throw new LexerException("Symbol: " + pInput.CurrentSymbol + " not recognized");
             }
         }
     }

@@ -29,7 +29,9 @@ namespace scriptea.Lexical
             {"null",TokenType.KwNull},
             {"undefined",TokenType.KwNull},
             {"true",TokenType.LitBool},
-            {"false",TokenType.LitBool}
+            {"false",TokenType.LitBool},
+            {"finally",TokenType.KwFinally}
+
         };
         public static bool Contains(string pSymbol)
         {

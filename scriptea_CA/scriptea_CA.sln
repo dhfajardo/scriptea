@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scriptea_CA", "scriptea_CA\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scriptea", "scriptea\scriptea.csproj", "{BF7158FE-D7BF-4A85-8EAF-95136D90B7E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scriptea.test", "scriptea.test\scriptea.test.csproj", "{4736B622-BCC2-4357-83F9-53B0AA7CC851}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BF7158FE-D7BF-4A85-8EAF-95136D90B7E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF7158FE-D7BF-4A85-8EAF-95136D90B7E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF7158FE-D7BF-4A85-8EAF-95136D90B7E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4736B622-BCC2-4357-83F9-53B0AA7CC851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4736B622-BCC2-4357-83F9-53B0AA7CC851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4736B622-BCC2-4357-83F9-53B0AA7CC851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4736B622-BCC2-4357-83F9-53B0AA7CC851}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,12 @@ namespace scriptea.Lexical.States
                 pInput.ConsumeSymbol();
                 return new Token { Type = TokenType.OpGreaterEqualThan, LexemeVal = pLexeme.Value, Row = pInput.Row, Column = pInput.Column };
             }
+            else if (pInput.CurrentSymbol == '>')
+            {
+                pLexeme.addSymbol(pInput.CurrentSymbol);
+                pInput.ConsumeSymbol();
+                return new StateRightShift1().ProcessState(pInput,pLexeme);
+            }
             else
             {
                 return new Token { Type = TokenType.OpGreaterThan, LexemeVal = pLexeme.Value, Row = pInput.Row, Column = pInput.Column };
