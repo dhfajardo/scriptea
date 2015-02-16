@@ -15,6 +15,7 @@ namespace scriptea.Parsing.Statements
             else
             {
                 //Epsilon
+                throw new ParserException("This was expected the token: throw");
             }
         }
     }

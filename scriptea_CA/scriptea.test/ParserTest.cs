@@ -35,7 +35,7 @@ namespace scriptea.test
         [TestMethod]
         public void TestExPrimary()
         {
-            var parser = new Parser(new Lexer(new InputStream("false")));
+            var parser = new Parser(new Lexer(new InputStream("")));
             parser.StartINTerminal = new PrimaryExpression();
             parser.Parse();
         }

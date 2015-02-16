@@ -60,6 +60,28 @@ namespace scriptea.Parsing.Statements
                     throw new ParserException("This was expected (");
                 }
             }
+            else if (parser.CurrenToken.Type == TokenType.KwFor)
+            {
+                parser.NextToken();
+                if (parser.CurrenToken.Type == TokenType.PmLeftParent)
+                {
+                    parser.NextToken();
+                    new ForConditions().Process(parser);
+                    if (parser.CurrenToken.Type == TokenType.PmRightParent)
+                    {
+                        parser.NextToken();
+                        new Statementp().Process(parser);
+                    }
+                    else
+                    {
+                        throw  new ParserException("This was expected )");
+                    }
+                }
+                else
+                {
+                    throw new ParserException("This was expected (");
+                }
+            }
             else if (parser.CurrenToken.Type == TokenType.KwBreak)
             {
                 parser.NextToken();

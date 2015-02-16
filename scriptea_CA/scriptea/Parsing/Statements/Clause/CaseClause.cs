@@ -27,7 +27,7 @@ namespace scriptea.Parsing.Statements.Clause
             }
             else
             {
-                throw new ParserException("This was expected the word case");
+                throw new ParserException("This was expected the tokent: case");
             }
         }
     }

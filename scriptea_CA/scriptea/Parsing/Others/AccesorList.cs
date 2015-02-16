@@ -55,7 +55,8 @@ namespace scriptea.Parsing.Others
             }
             else
             {
-                throw new ParserException("This was expected [, ( or .");
+                //Epsilon
+                //throw new ParserException("This was expected [, ( or .");
             }
         }
     }

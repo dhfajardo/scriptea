@@ -26,7 +26,7 @@ namespace scriptea.Parsing.Expressions.Constructor
                 if (parser.CurrenToken.Type == TokenType.Id)
                 {
                     parser.NextToken();
-                    new ConstructorCallp().Process(parser);
+                    this.Process(parser);
                 }
             }
             else

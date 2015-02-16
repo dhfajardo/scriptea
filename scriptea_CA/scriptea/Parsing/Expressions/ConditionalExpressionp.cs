@@ -13,7 +13,7 @@ namespace scriptea.Parsing.Expressions
                 if (parser.CurrenToken.Type == TokenType.PmDot)
                 {
                     parser.NextToken();
-                    new AssignmentExpression().Process(parser);
+                    this.Process(parser);
                 }
                 else
                 {

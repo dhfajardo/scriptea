@@ -7,3 +7,4 @@ C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\bin\Debug\scr
 C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\bin\Debug\scriptea.pdb
 C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.dll
 C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.pdb
+C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.csprojResolveAssemblyReference.cache
