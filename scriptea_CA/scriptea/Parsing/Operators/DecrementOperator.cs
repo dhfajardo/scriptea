@@ -16,7 +16,7 @@ namespace scriptea.Parsing.Operators
             }
             else
             {
-                throw new LexerException("This was expected --");
+                throw new ParserException("This was expected --");
             }
 
         }

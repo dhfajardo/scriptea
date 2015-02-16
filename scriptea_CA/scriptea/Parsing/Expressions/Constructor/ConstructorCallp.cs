@@ -31,7 +31,7 @@ namespace scriptea.Parsing.Expressions.Constructor
             }
             else
             {
-                //epsilon
+                throw new ParserException("This was expected a Identifier or (");
             }
         }
     }

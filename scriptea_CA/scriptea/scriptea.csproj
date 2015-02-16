@@ -61,6 +61,7 @@
     <Compile Include="Lexical\States\StateId.cs" />
     <Compile Include="Lexical\States\InitialState.cs" />
     <Compile Include="Lexical\States\IState.cs" />
+    <Compile Include="Lexical\States\StateLeftShift.cs" />
     <Compile Include="Lexical\States\StateLessThan.cs" />
     <Compile Include="Lexical\States\StateMod.cs" />
     <Compile Include="Lexical\States\StateMul.cs" />

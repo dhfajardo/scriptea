@@ -11,7 +11,16 @@ namespace scriptea.test
     [TestClass]
     public class ParserTest
     {
+        /*[TestMethod]
+        //[ExpectedException(typeof(ParserException))]
+        public void TestOPDec()
+        {
+            var parser = new Parser(new Lexer(new InputStream("--")));
+            parser.StartINTerminal = new DecrementOperator();
+            parser.Parse();
+        }*/
         [TestMethod]
+        //[ExpectedException(typeof(ParserException))]
         public void TestOPDec()
         {
             var parser = new Parser(new Lexer(new InputStream("--")));
