@@ -17,6 +17,7 @@ namespace scriptea.Parsing.Statements
                 || parser.CurrenToken.Type == TokenType.KwDo
                 || parser.CurrenToken.Type == TokenType.KwReturn
                 || parser.CurrenToken.Type == TokenType.KwTry
+                || parser.CurrenToken.Type == TokenType.KwVar
                 || parser.CurrenToken.Type == TokenType.Id
                 || parser.CurrenToken.Type == TokenType.PmLeftParent
                 || parser.CurrenToken.Type == TokenType.PmLeftBracket

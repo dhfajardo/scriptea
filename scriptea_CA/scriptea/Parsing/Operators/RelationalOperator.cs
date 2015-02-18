@@ -22,6 +22,18 @@ namespace scriptea.Parsing.Operators
             {
                 parser.NextToken();
             }
+            else if (parser.CurrenToken.Type == TokenType.OpEqual)
+            {
+                parser.NextToken();
+            }
+            else if (parser.CurrenToken.Type == TokenType.OpEquiv)
+            {
+                parser.NextToken();
+            }
+            else if (parser.CurrenToken.Type == TokenType.OpNoteQuiv)
+            {
+                parser.NextToken();
+            }
             else
             {
                 throw  new ParserException("This was expected *,/ or %");

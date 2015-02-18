@@ -42,6 +42,18 @@ namespace scriptea.Parsing.Operators
             {
                 parser.NextToken();
             }
+            else if (parser.CurrenToken.Type == TokenType.OpAssigBitwiseAnd)
+            {
+                parser.NextToken();
+            }
+            else if (parser.CurrenToken.Type == TokenType.OpAssigBitwiseOr)
+            {
+                parser.NextToken();
+            }
+            else if (parser.CurrenToken.Type == TokenType.OpAssigBitwiseXOr)
+            {
+                parser.NextToken();
+            }
             else
             {
                 throw  new ParserException("This was expected *,/ or %");

@@ -47,7 +47,7 @@ namespace scriptea.Parsing.Expressions
             }
             else
             {
-                //Epsilon
+                throw new ParserException("This was expected a UnaryExpresion");
             }
         }
     }
