@@ -10,7 +10,7 @@ namespace scriptea.Parsing.Expressions
             {
                 parser.NextToken();
                 new AssignmentExpression().Process(parser);
-                if (parser.CurrenToken.Type == TokenType.PmDot)
+                if (parser.CurrenToken.Type == TokenType.PmColon)
                 {
                     parser.NextToken();
                     new AssignmentExpression().Process(parser);

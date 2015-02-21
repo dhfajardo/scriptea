@@ -30,7 +30,11 @@ namespace scriptea.Parsing.Operators
             {
                 parser.NextToken();
             }
-            else if (parser.CurrenToken.Type == TokenType.OpNoteQuiv)
+            else if (parser.CurrenToken.Type == TokenType.OpNotEquiv)
+            {
+                parser.NextToken();
+            } 
+            else if (parser.CurrenToken.Type == TokenType.OpNotEqual)
             {
                 parser.NextToken();
             }

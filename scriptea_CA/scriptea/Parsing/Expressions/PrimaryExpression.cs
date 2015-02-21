@@ -54,7 +54,11 @@ namespace scriptea.Parsing.Expressions
             }
             else if(parser.CurrenToken.Type == TokenType.KwNull)
             {
-                throw  new ParserException("This was expected (, [, lit. int,lit. float, lit. bool or null");
+                parser.NextToken();
+            }
+            else
+            {
+                throw new ParserException("This was expected (, [, lit. int,lit. float, lit. bool or null");
             }
         }
     }

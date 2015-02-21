@@ -18,7 +18,7 @@ namespace scriptea.Lexical.States
             }
             else
             {
-                return new Token { Type = TokenType.OpNoteQuiv, LexemeVal = pLexeme.Value, Row = pInput.Row, Column = pInput.Column };
+                return new Token { Type = TokenType.OpNotEquiv, LexemeVal = pLexeme.Value, Row = pInput.Row, Column = pInput.Column };
             }
         }
     }

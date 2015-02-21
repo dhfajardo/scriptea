@@ -20,13 +20,7 @@ namespace scriptea.Lexical.States
             {
                 pLexeme.addSymbol(pInput.CurrentSymbol);
                 pInput.ConsumeSymbol();
-                return new Token
-                {
-                    Type = TokenType.OpLeftShift,
-                    LexemeVal = pLexeme.Value,
-                    Row = pInput.Row,
-                    Column = pInput.Column
-                };
+                return new StateLeftShift().ProcessState(pInput,pLexeme);
             }
             else
             {

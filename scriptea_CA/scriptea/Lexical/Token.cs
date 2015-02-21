@@ -36,7 +36,7 @@ namespace scriptea.Lexical
         OpAssigBitwiseXOr,
         OpEquiv,
         OpEqual,
-        OpNoteQuiv,
+        OpNotEquiv,
         OpNotEqual,
         OpGreaterThan,
         OpLessThan,
