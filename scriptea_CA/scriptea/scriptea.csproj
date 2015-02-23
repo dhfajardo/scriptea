@@ -157,6 +157,23 @@
     <Compile Include="Tree\Operator\RelationalOperatorNode.cs" />
     <Compile Include="Tree\Operator\ShiftOperatorNode.cs" />
     <Compile Include="Tree\Operator\UnaryOperatorNode.cs" />
+    <Compile Include="Tree\Others\CaseNode.cs" />
+    <Compile Include="Tree\Others\CatchNode.cs" />
+    <Compile Include="Tree\Others\DefauldNode.cs" />
+    <Compile Include="Tree\Others\FinallyNode.cs" />
+    <Compile Include="Tree\Others\NewNode.cs" />
+    <Compile Include="Tree\Others\ThrowNode.cs" />
+    <Compile Include="Tree\Statement\BreakNode.cs" />
+    <Compile Include="Tree\Statement\ContinueNode.cs" />
+    <Compile Include="Tree\Statement\DoWhileNode.cs" />
+    <Compile Include="Tree\Statement\ElseNode.cs" />
+    <Compile Include="Tree\Statement\ForNode.cs" />
+    <Compile Include="Tree\Others\FunctionNode.cs" />
+    <Compile Include="Tree\Statement\IfNode.cs" />
+    <Compile Include="Tree\Statement\ReturnNode.cs" />
+    <Compile Include="Tree\Statement\SwitchNode.cs" />
+    <Compile Include="Tree\Statement\TryNode.cs" />
+    <Compile Include="Tree\Statement\WhileNode.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

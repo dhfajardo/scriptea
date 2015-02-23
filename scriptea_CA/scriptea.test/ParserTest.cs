@@ -179,11 +179,14 @@ namespace scriptea.test
                 "!!!!!!++id"
                 ,"id.id[3]--"
                 ,"id2.id4[alan]++"
-                ,"!~!~!~------!!!!!~~~~-~!4"
+                ,"!!!!~~~~~-!-!~-!!!id"
             };
-            var parser = new Parser(new Lexer(new InputStream("\"tengo hambre\"")));
-            parser.StartINTerminal = new UnaryExpression();
-            parser.Parse();
+            foreach (var ind in list)
+            {
+                var parser = new Parser(new Lexer(new InputStream(ind.ToString())));
+                parser.StartINTerminal = new UnaryExpression();
+                parser.Parse();
+            }
         }
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
@@ -201,10 +204,15 @@ namespace scriptea.test
             ArrayList list = new ArrayList
             {
                 "~~~~~!!!!!~!~!~!~!~!~!-----~~!~!!!3*~!~!~"
+                ,"id()[3]*34"
             };
-            var parser = new Parser(new Lexer(new InputStream("id()[3]*34")));
-            parser.StartINTerminal = new MultiplicativeExpression();
-            parser.Parse();
+            foreach (var ls in list)
+            {
+                var parser = new Parser(new Lexer(new InputStream(ls.ToString())));
+                parser.StartINTerminal = new MultiplicativeExpression();
+                parser.Parse();
+            }
+            
         }
 
         [TestMethod]
