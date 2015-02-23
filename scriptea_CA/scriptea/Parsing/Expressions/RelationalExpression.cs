@@ -1,11 +1,14 @@
+using System.Collections.Generic;
+
 namespace scriptea.Parsing.Expressions
 {
     public class RelationalExpression:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
-            new ShiftExpression().Process(parser);
-            new RelationalExpressionp().Process(parser);
+            new ShiftExpression().Process(parser, parameters);
+            new RelationalExpressionp().Process(parser, parameters);
+            return null;
         }
     }
 }

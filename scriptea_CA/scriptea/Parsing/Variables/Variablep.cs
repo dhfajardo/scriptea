@@ -9,17 +9,18 @@ namespace scriptea.Parsing.Variables
 {
     public class Variablep:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpAssig)
             {
                 parser.NextToken();
-                new AssignmentExpression().Process(parser);
+                new AssignmentExpression().Process(parser, parameters);
             }
             else
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

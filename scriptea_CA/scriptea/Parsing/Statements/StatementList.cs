@@ -1,10 +1,11 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Statements
 {
     public class StatementList:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.PmSemicolon
                 || parser.CurrenToken.Type == TokenType.KwIf
@@ -33,13 +34,14 @@ namespace scriptea.Parsing.Statements
                 || parser.CurrenToken.Type == TokenType.OpDec
                 || parser.CurrenToken.Type == TokenType.KwNew)
             {
-                new Statement().Process(parser);
-                this.Process(parser);
+                new Statement().Process(parser, parameters);
+                this.Process(parser, parameters);
             }
             else
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

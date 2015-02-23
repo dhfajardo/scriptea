@@ -1,15 +1,16 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Statements
 {
     public class CompoundStatement:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.PmLeftCurlyBracket)
             {
                 parser.NextToken();
-                new StatementList().Process(parser);
+                new StatementList().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmRightCurlyBracket)
                 {
                     parser.NextToken();
@@ -23,6 +24,7 @@ namespace scriptea.Parsing.Statements
             {
                 throw new ParserException("This was expected {");
             }
+            return null;
         }
     }
 }

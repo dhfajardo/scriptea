@@ -7,10 +7,11 @@ namespace scriptea.Parsing.Statements.Clause
 {
     public class CaseBlock:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
-            new CaseClauseList().Process(parser);
-            new DefauldClause().Process(parser);
+            new CaseClauseList().Process(parser, parameters);
+            new DefauldClause().Process(parser, parameters);
+            return null;
         }
     }
 }

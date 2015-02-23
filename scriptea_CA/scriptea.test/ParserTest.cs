@@ -111,9 +111,20 @@ namespace scriptea.test
         //[ExpectedException(typeof(ParserException))]
         public void TestAccesorList()
         {
-            var parser = new Parser(new Lexer(new InputStream(".id[2]().algo()")));
-            parser.StartINTerminal = new AccesorList();
-            parser.Parse();
+            ArrayList list = new ArrayList
+            {
+                ".id[2]().algo()"
+                ,".id.id.id"
+                ,"[(alan)*4 = andres]"
+                ,"[(alan*odir)%4]"
+                ,"(alan7[44])"
+            };
+            foreach (var ind in list)
+            {
+                var parser = new Parser(new Lexer(new InputStream(ind.ToString())));
+                parser.StartINTerminal = new AccesorList();
+                parser.Parse();   
+            }
         }
 
         /*MEMBER EXPRESSION*/
@@ -139,6 +150,12 @@ namespace scriptea.test
         //[ExpectedException(typeof(ParserException))]
         public void TestConstCall()
         {
+            ArrayList list = new ArrayList
+            {
+                "id()"
+                ,"id(4+3)"
+                ,
+            };
             var parser = new Parser(new Lexer(new InputStream("id.ok()")));
             parser.StartINTerminal = new ConstructorCall();
             parser.Parse();
@@ -157,6 +174,13 @@ namespace scriptea.test
         //[ExpectedException(typeof(ParserException))]
         public void TestUnaryExp()
         {
+            ArrayList list = new ArrayList
+            {
+                "!!!!!!++id"
+                ,"id.id[3]--"
+                ,"id2.id4[alan]++"
+                ,"!~!~!~------!!!!!~~~~-~!4"
+            };
             var parser = new Parser(new Lexer(new InputStream("\"tengo hambre\"")));
             parser.StartINTerminal = new UnaryExpression();
             parser.Parse();
@@ -174,6 +198,10 @@ namespace scriptea.test
         //[ExpectedException(typeof(ParserException))]
         public void TestMultExp()
         {
+            ArrayList list = new ArrayList
+            {
+                "~~~~~!!!!!~!~!~!~!~!~!-----~~!~!!!3*~!~!~"
+            };
             var parser = new Parser(new Lexer(new InputStream("id()[3]*34")));
             parser.StartINTerminal = new MultiplicativeExpression();
             parser.Parse();

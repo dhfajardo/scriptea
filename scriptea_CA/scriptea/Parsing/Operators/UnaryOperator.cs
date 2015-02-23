@@ -8,7 +8,7 @@ namespace scriptea.Parsing.Operators
 {
     public class UnaryOperator:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpNotBit)
             {
@@ -26,6 +26,7 @@ namespace scriptea.Parsing.Operators
             {
                 throw  new ParserException("This was expected !,~ or -");
             }
+            return null;
         }
     }
 }

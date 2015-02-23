@@ -1,4 +1,5 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 using scriptea.Parsing.Parameters;
 using scriptea.Parsing.Statements;
 
@@ -6,7 +7,7 @@ namespace scriptea.Parsing
 {
     public class Program:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.KwFunction
                 || parser.CurrenToken.Type == TokenType.PmSemicolon
@@ -36,13 +37,14 @@ namespace scriptea.Parsing
                 || parser.CurrenToken.Type == TokenType.OpDec
                 || parser.CurrenToken.Type == TokenType.KwNew)
             {
-                new Element().Process(parser);
-                this.Process(parser);
+                new Element().Process(parser, parameters);
+                this.Process(parser, parameters);
             }
             else
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

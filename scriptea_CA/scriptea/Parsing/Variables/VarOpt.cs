@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using scriptea.Lexical;
 
 namespace scriptea.Parsing.Variables
 {
     public class VarOpt:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.KwVar)
             {
@@ -14,6 +15,7 @@ namespace scriptea.Parsing.Variables
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

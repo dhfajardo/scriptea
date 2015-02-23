@@ -9,20 +9,21 @@ namespace scriptea.Parsing.Expressions
 {
     public class UnaryExpressionp:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpInc)
             {
-                new IncrementOperator().Process(parser);
+                new IncrementOperator().Process(parser, parameters);
             }
             else if (parser.CurrenToken.Type == TokenType.OpDec)
             {
-                new DecrementOperator().Process(parser);
+                new DecrementOperator().Process(parser, parameters);
             }
             else
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

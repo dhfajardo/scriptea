@@ -146,6 +146,17 @@
     <Compile Include="Parsing\Variables\VariablesOrExpression.cs" />
     <Compile Include="Parsing\Variables\VarOpt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tree\Expression\ExpressionNode.cs" />
+    <Compile Include="Tree\Literals\BooleanNode.cs" />
+    <Compile Include="Tree\Literals\FloatNode.cs" />
+    <Compile Include="Tree\Literals\IntegerNode.cs" />
+    <Compile Include="Tree\Literals\StringNode.cs" />
+    <Compile Include="Tree\Operator\AdditiveOperatorNode.cs" />
+    <Compile Include="Tree\Operator\AssigOperatorNode.cs" />
+    <Compile Include="Tree\Operator\MultiplicativeOperatorNode.cs" />
+    <Compile Include="Tree\Operator\RelationalOperatorNode.cs" />
+    <Compile Include="Tree\Operator\ShiftOperatorNode.cs" />
+    <Compile Include="Tree\Operator\UnaryOperatorNode.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -24,7 +24,8 @@ namespace scriptea.test
                 "\"hola\"",
                 "true",
                 "false"
-                ,"()"
+                ,"(id=3)"
+                ,"[3,3,2,id]"
             };
             foreach (var tokenType in list)
             {
@@ -44,6 +45,7 @@ namespace scriptea.test
                 ,"id[8+3]"
                 ,"id(bool).id"
                 ,"id[1]"
+                ,"id.id[id[4]]"
             };
             foreach (var tokenType in list)
             {
@@ -68,10 +70,22 @@ namespace scriptea.test
                 ,"(32.323)"
                 ,"(null)"
                 ,"(\"String\")"
-                ,"[]","[3]*3+(1*3)"
+                ,"[]"
+                ,"[3]*3+(1*3)"
                 ,"([43>3])"
                 ,"[hola + 43/(mul--)]"
                 ,"45/58*96%2+id--"
+                ,"id+=3"
+                ,"id?var1=var2:3"
+                ,"id[4]?id[3]:id[3]"
+                ,"new id.id() = 4"
+                ,"id.f[id.a[4]]()"
+                ,"id.f[id.a[4]](id.f[id.a[4]]())"
+                ,"id.f[id.a[4]]()"
+                ,"new id(id.f[id.a[4]]())"
+                ,"new id.id.id.id4(id.f[id.a[4]]())"
+                ,"new id.id.id(id.f[id.a[id.a[((a++) * (b--))/d%4]]]())"
+                ,"var1[3].id() = alan"
             };
             foreach (var tokenType in list)
             {

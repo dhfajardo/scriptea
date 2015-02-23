@@ -1,11 +1,14 @@
+using System.Collections.Generic;
+
 namespace scriptea.Parsing.Expressions
 {
     public class BitwiseXorExpression:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
-            new BitwiseAndExpression().Process(parser);
-            new BitwiseXorExpressionp().Process(parser);
+            new BitwiseAndExpression().Process(parser, parameters);
+            new BitwiseXorExpressionp().Process(parser, parameters);
+            return null;
         }
     }
 }

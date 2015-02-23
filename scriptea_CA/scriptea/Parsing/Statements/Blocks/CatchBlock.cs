@@ -1,10 +1,11 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Statements.Blocks
 {
     public class CatchBlock:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.KwCatch)
             {
@@ -18,7 +19,7 @@ namespace scriptea.Parsing.Statements.Blocks
                         if (parser.CurrenToken.Type == TokenType.PmRightParent)
                         {
                             parser.NextToken();
-                            new CompoundStatement().Process(parser);
+                            new CompoundStatement().Process(parser, parameters);
                         }
                         else
                         {
@@ -39,6 +40,7 @@ namespace scriptea.Parsing.Statements.Blocks
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

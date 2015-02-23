@@ -9,20 +9,21 @@ namespace scriptea.Parsing.Expressions
 {
     public class MultiplicativeExpressionp:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpMul
                 || parser.CurrenToken.Type == TokenType.OpDiv
                 || parser.CurrenToken.Type == TokenType.OpMod)
             {
-                new MultiplicativeOperator().Process(parser);
-                new UnaryExpression().Process(parser);
-                this.Process(parser);
+                new MultiplicativeOperator().Process(parser, parameters);
+                new UnaryExpression().Process(parser, parameters);
+                this.Process(parser, parameters);
             }
             else
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

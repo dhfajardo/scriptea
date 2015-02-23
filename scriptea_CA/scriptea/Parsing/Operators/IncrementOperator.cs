@@ -1,10 +1,11 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Operators
 {
     public class IncrementOperator:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpInc)
             {
@@ -14,7 +15,7 @@ namespace scriptea.Parsing.Operators
             {
                 throw new LexerException("This was expected ++");
             }
-
+            return null;
         }
     }
 }

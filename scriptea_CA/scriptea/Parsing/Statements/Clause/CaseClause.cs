@@ -9,16 +9,16 @@ namespace scriptea.Parsing.Statements.Clause
 {
     public class CaseClause:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.KwCase)
             {
                 parser.NextToken();
-                new AssignmentExpression().Process(parser);
+                new AssignmentExpression().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmColon)
                 {
                     parser.NextToken();
-                    new StatementList().Process(parser);
+                    new StatementList().Process(parser, parameters);
                 }
                 else
                 {
@@ -29,6 +29,7 @@ namespace scriptea.Parsing.Statements.Clause
             {
                 throw new ParserException("This was expected the tokent: case");
             }
+            return null;
         }
     }
 }

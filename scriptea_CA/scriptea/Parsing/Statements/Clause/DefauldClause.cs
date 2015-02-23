@@ -1,10 +1,11 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Statements.Clause
 {
     public class DefauldClause:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.KwDefault)
             {
@@ -12,8 +13,8 @@ namespace scriptea.Parsing.Statements.Clause
                 if (parser.CurrenToken.Type == TokenType.PmDot)
                 {
                     parser.NextToken();
-                    new Statementp().Process(parser);
-                    new CaseClauseList().Process(parser);
+                    new Statementp().Process(parser, parameters);
+                    new CaseClauseList().Process(parser, parameters);
                 }
                 else
                 {
@@ -24,6 +25,7 @@ namespace scriptea.Parsing.Statements.Clause
             {
                 //Epsilon   
             }
+            return null;
         }
     }
 }

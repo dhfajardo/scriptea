@@ -1,10 +1,11 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Expressions
 {
     public  class ExpressionOpt:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.Id
                 || parser.CurrenToken.Type == TokenType.PmLeftParent
@@ -21,12 +22,13 @@ namespace scriptea.Parsing.Expressions
                 || parser.CurrenToken.Type == TokenType.OpDec
                 || parser.CurrenToken.Type == TokenType.KwNew)
             {
-                new Expression().Process(parser);
+                new Expression().Process(parser, parameters);
             }
             else
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

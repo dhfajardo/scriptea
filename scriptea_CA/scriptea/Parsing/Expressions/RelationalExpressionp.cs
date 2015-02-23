@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Parsing.Operators;
 
@@ -5,7 +6,7 @@ namespace scriptea.Parsing.Expressions
 {
     public class RelationalExpressionp:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpGreaterThan
                 || parser.CurrenToken.Type == TokenType.OpGreaterEqualThan
@@ -15,14 +16,15 @@ namespace scriptea.Parsing.Expressions
                 || parser.CurrenToken.Type == TokenType.OpEquiv
                 || parser.CurrenToken.Type == TokenType.OpEqual)
             {
-                new RelationalOperator().Process(parser);
-                new ShiftExpression().Process(parser);
-                this.Process(parser);
+                new RelationalOperator().Process(parser, parameters);
+                new ShiftExpression().Process(parser, parameters);
+                this.Process(parser, parameters);
             }
             else
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

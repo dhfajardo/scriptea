@@ -22,13 +22,14 @@ namespace scriptea.Parsing
             _currenToken = _lexer.GetNextToken();
         }
 
-        public void Parse()
+        public object Parse()
         {
-            StartINTerminal.Process(this);
+            var result = StartINTerminal.Process(this, null);
             if (_currenToken.Type != TokenType.Eof)
             {
                 throw  new ParserException("This was expected EOF");
             }
+            return result;
         }
     }
 }

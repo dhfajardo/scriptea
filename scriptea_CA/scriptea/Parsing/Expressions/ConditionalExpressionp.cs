@@ -1,19 +1,20 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Expressions
 {
     public class ConditionalExpressionp:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpTernary)
             {
                 parser.NextToken();
-                new AssignmentExpression().Process(parser);
+                new AssignmentExpression().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmColon)
                 {
                     parser.NextToken();
-                    new AssignmentExpression().Process(parser);
+                    new AssignmentExpression().Process(parser, parameters);
                 }
                 else
                 {
@@ -24,6 +25,7 @@ namespace scriptea.Parsing.Expressions
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

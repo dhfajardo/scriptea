@@ -1,10 +1,11 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Parameters
 {
     public class ParameterListp:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.PmComma)
             {
@@ -12,7 +13,7 @@ namespace scriptea.Parsing.Parameters
                 if (parser.CurrenToken.Type == TokenType.Id)
                 {
                     parser.NextToken();
-                    this.Process(parser);
+                    this.Process(parser, parameters);
                 }
                 else
                 {
@@ -23,6 +24,7 @@ namespace scriptea.Parsing.Parameters
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

@@ -8,12 +8,12 @@ namespace scriptea.Parsing.Expressions
 {
     public  class PrimaryExpression:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.PmLeftParent)
             {
                 parser.NextToken();
-                new AssignmentExpression().Process(parser);
+                new AssignmentExpression().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmRightParent)
                 {
                     parser.NextToken();
@@ -26,7 +26,7 @@ namespace scriptea.Parsing.Expressions
             else if (parser.CurrenToken.Type == TokenType.PmLeftBracket)
             {
                 parser.NextToken();
-                new ExpressionOpt().Process(parser);
+                new ExpressionOpt().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmRightBracket)
                 {
                     parser.NextToken();
@@ -60,6 +60,7 @@ namespace scriptea.Parsing.Expressions
             {
                 throw new ParserException("This was expected (, [, lit. int,lit. float, lit. bool or null");
             }
+            return null;
         }
     }
 }

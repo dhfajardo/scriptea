@@ -1,4 +1,5 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 using scriptea.Parsing.Expressions;
 using scriptea.Parsing.Variables;
 
@@ -6,20 +7,20 @@ namespace scriptea.Parsing.Statements.Elements
 {
     public class ForConditions:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.KwVar)
             {
                 parser.NextToken();
-                new VariableList().Process(parser);
+                new VariableList().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                 {
                     parser.NextToken();
-                    new ExpressionOpt().Process(parser);
+                    new ExpressionOpt().Process(parser, parameters);
                     if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                     {
                         parser.NextToken();
-                        new ExpressionOpt().Process(parser);
+                        new ExpressionOpt().Process(parser, parameters);
                     }
                     else
                     {
@@ -33,15 +34,15 @@ namespace scriptea.Parsing.Statements.Elements
             }
             else
             {
-                new ExpressionOpt().Process(parser);
+                new ExpressionOpt().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                 {
                     parser.NextToken();
-                    new ExpressionOpt().Process(parser);
+                    new ExpressionOpt().Process(parser, parameters);
                     if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                     {
                         parser.NextToken();
-                        new ExpressionOpt().Process(parser);
+                        new ExpressionOpt().Process(parser, parameters);
                     }
                     else
                     {
@@ -53,6 +54,7 @@ namespace scriptea.Parsing.Statements.Elements
                     throw new ParserException("This was expected ;");
                 }
             }
+            return null;
         }
     }
 }

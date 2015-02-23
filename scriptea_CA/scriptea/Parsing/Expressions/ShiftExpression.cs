@@ -1,11 +1,14 @@
+using System.Collections.Generic;
+
 namespace scriptea.Parsing.Expressions
 {
     public class ShiftExpression:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
-            new AdditiveExpression().Process(parser);
-            new ShiftExpressionp().Process(parser);
+            new AdditiveExpression().Process(parser, parameters);
+            new ShiftExpressionp().Process(parser, parameters);
+            return null;
         }
     }
 }

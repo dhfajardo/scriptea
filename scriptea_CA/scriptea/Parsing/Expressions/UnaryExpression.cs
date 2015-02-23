@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Parsing.Operators;
 using scriptea.Parsing.Expressions.Constructor;
@@ -6,12 +7,12 @@ namespace scriptea.Parsing.Expressions
 {
     public class UnaryExpression:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.Id)
             {
-                new MemberExpression().Process(parser);
-                new UnaryExpressionp().Process(parser);
+                new MemberExpression().Process(parser, parameters);
+                new UnaryExpressionp().Process(parser, parameters);
             }
             else if (parser.CurrenToken.Type == TokenType.PmLeftParent
                 || parser.CurrenToken.Type == TokenType.PmLeftBracket
@@ -21,34 +22,35 @@ namespace scriptea.Parsing.Expressions
                 || parser.CurrenToken.Type == TokenType.LitBool
                 || parser.CurrenToken.Type == TokenType.KwNull)
             {
-                new PrimaryExpression().Process(parser);
+                new PrimaryExpression().Process(parser, parameters);
             }
             else if (parser.CurrenToken.Type == TokenType.OpNot
                      || parser.CurrenToken.Type == TokenType.OpSub
                      || parser.CurrenToken.Type == TokenType.OpNotBit)
             {
-                new UnaryOperator().Process(parser);
-                this.Process(parser);
+                new UnaryOperator().Process(parser, parameters);
+                this.Process(parser, parameters);
             }
             else if (parser.CurrenToken.Type == TokenType.OpInc)
             {
-                new IncrementOperator().Process(parser);
-                new MemberExpression().Process(parser);
+                new IncrementOperator().Process(parser, parameters);
+                new MemberExpression().Process(parser, parameters);
             }
             else if (parser.CurrenToken.Type == TokenType.OpDec)
             {
-                new DecrementOperator().Process(parser);
-                new MemberExpression().Process(parser);
+                new DecrementOperator().Process(parser, parameters);
+                new MemberExpression().Process(parser, parameters);
             }
             else if (parser.CurrenToken.Type == TokenType.KwNew)
             {
                 parser.NextToken();
-                new ConstructorCall().Process(parser);
+                new ConstructorCall().Process(parser, parameters);
             }
             else
             {
                 throw new ParserException("This was expected a UnaryExpresion");
             }
+            return null;
         }
     }
 }

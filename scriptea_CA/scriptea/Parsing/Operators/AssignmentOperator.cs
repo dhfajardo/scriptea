@@ -1,10 +1,11 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 
 namespace scriptea.Parsing.Operators
 {
     public class AssignmentOperator:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpAssig)
             {
@@ -58,6 +59,7 @@ namespace scriptea.Parsing.Operators
             {
                 throw  new ParserException("This was expected *,/ or %");
             }
+            return null;
         }
     }
 }

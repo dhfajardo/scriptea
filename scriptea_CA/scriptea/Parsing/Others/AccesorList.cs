@@ -10,7 +10,7 @@ namespace scriptea.Parsing.Others
 {
     public  class AccesorList:INTerminal 
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.PmDot)
             {
@@ -18,7 +18,7 @@ namespace scriptea.Parsing.Others
                 if (parser.CurrenToken.Type == TokenType.Id)
                 {
                     parser.NextToken();
-                    this.Process(parser);
+                    this.Process(parser, parameters);
                 }
                 else
                 {
@@ -28,11 +28,11 @@ namespace scriptea.Parsing.Others
             else if (parser.CurrenToken.Type == TokenType.PmLeftBracket)
             {
                 parser.NextToken();
-                new AssignmentExpression().Process(parser);
+                new AssignmentExpression().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmRightBracket)
                 {
                     parser.NextToken();
-                    this.Process(parser);
+                    this.Process(parser, parameters);
                 }
                 else
                 {
@@ -42,11 +42,11 @@ namespace scriptea.Parsing.Others
             else if (parser.CurrenToken.Type == TokenType.PmLeftParent)
             {
                 parser.NextToken();
-                new ExpressionOpt().Process(parser);
+                new ExpressionOpt().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmRightParent)
                 {
                     parser.NextToken();
-                    this.Process(parser);
+                    this.Process(parser, parameters);
                 }
                 else
                 {
@@ -58,6 +58,7 @@ namespace scriptea.Parsing.Others
                 //Epsilon
                 //throw new ParserException("This was expected [, ( or .");
             }
+            return null;
         }
     }
 }

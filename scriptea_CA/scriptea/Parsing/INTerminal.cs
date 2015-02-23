@@ -6,6 +6,6 @@ namespace scriptea.Parsing
 {
     public interface  INTerminal
     {
-        void Process(Parser parser);
+        object Process(Parser parser, SortedDictionary<string, object> parameters);
     }
 }

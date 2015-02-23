@@ -1,11 +1,14 @@
+using System.Collections.Generic;
+
 namespace scriptea.Parsing.Expressions
 {
     public class AdditiveExpression:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
-            new MultiplicativeExpression().Process(parser);
-            new AdditiveExpressionp().Process(parser);
+            new MultiplicativeExpression().Process(parser, parameters);
+            new AdditiveExpressionp().Process(parser, parameters);
+            return null;
         }
     }
 }

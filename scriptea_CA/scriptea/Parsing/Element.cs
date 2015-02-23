@@ -1,4 +1,5 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 using scriptea.Parsing.Parameters;
 using scriptea.Parsing.Statements;
 
@@ -6,7 +7,7 @@ namespace scriptea.Parsing
 {
     public class Element:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.KwFunction)
             {
@@ -17,11 +18,11 @@ namespace scriptea.Parsing
                     if (parser.CurrenToken.Type == TokenType.PmLeftParent)
                     {
                         parser.NextToken();
-                        new ParameterListOpt().Process(parser);
+                        new ParameterListOpt().Process(parser, parameters);
                         if (parser.CurrenToken.Type == TokenType.PmRightParent)
                         {
                             parser.NextToken();
-                            new CompoundStatement().Process(parser);
+                            new CompoundStatement().Process(parser, parameters);
                         }
                         else
                         {
@@ -40,8 +41,9 @@ namespace scriptea.Parsing
             }
             else
             {
-                new Statement().Process(parser);
+                new Statement().Process(parser, parameters);
             }
+            return null;
         }
     }
 }

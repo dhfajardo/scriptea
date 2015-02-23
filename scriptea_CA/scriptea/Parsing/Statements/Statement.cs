@@ -1,4 +1,5 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 using scriptea.Parsing.Expressions;
 using scriptea.Parsing.Statements.Blocks;
 using scriptea.Parsing.Statements.Clause;
@@ -9,7 +10,7 @@ namespace scriptea.Parsing.Statements
 {
     public class Statement:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.PmSemicolon)
             {
@@ -21,12 +22,12 @@ namespace scriptea.Parsing.Statements
                 if (parser.CurrenToken.Type == TokenType.PmLeftParent)
                 {
                     parser.NextToken();
-                    new AssignmentExpression().Process(parser);
+                    new AssignmentExpression().Process(parser, parameters);
                     if (parser.CurrenToken.Type == TokenType.PmRightParent)
                     {
                         parser.NextToken();
-                        new Statementp().Process(parser);
-                        new IfNot().Process(parser);
+                        new Statementp().Process(parser, parameters);
+                        new IfNot().Process(parser, parameters);
                     }
                     else
                     {
@@ -44,11 +45,11 @@ namespace scriptea.Parsing.Statements
                 if (parser.CurrenToken.Type == TokenType.PmLeftParent)
                 {
                     parser.NextToken();
-                    new AssignmentExpression().Process(parser);
+                    new AssignmentExpression().Process(parser, parameters);
                     if (parser.CurrenToken.Type == TokenType.PmRightParent)
                     {
                         parser.NextToken();
-                        new Statementp().Process(parser);
+                        new Statementp().Process(parser, parameters);
                     }
                     else
                     {
@@ -66,11 +67,11 @@ namespace scriptea.Parsing.Statements
                 if (parser.CurrenToken.Type == TokenType.PmLeftParent)
                 {
                     parser.NextToken();
-                    new ForConditions().Process(parser);
+                    new ForConditions().Process(parser, parameters);
                     if (parser.CurrenToken.Type == TokenType.PmRightParent)
                     {
                         parser.NextToken();
-                        new Statementp().Process(parser);
+                        new Statementp().Process(parser, parameters);
                     }
                     else
                     {
@@ -108,7 +109,7 @@ namespace scriptea.Parsing.Statements
             }
             else if (parser.CurrenToken.Type == TokenType.KwThrow)
             {
-                new ThrowStatement().Process(parser);
+                new ThrowStatement().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                 {
                     parser.NextToken();
@@ -124,14 +125,14 @@ namespace scriptea.Parsing.Statements
                 if (parser.CurrenToken.Type == TokenType.PmLeftParent)
                 {
                     parser.NextToken();
-                    new AssignmentExpression().Process(parser);
+                    new AssignmentExpression().Process(parser, parameters);
                     if (parser.CurrenToken.Type == TokenType.PmRightParent)
                     {
                         parser.NextToken();
                         if (parser.CurrenToken.Type == TokenType.PmLeftCurlyBracket)
                         {
                             parser.NextToken();
-                            new CaseBlock().Process(parser);
+                            new CaseBlock().Process(parser, parameters);
                             if (parser.CurrenToken.Type == TokenType.PmRightCurlyBracket)
                             {
                                 parser.NextToken();
@@ -159,14 +160,14 @@ namespace scriptea.Parsing.Statements
             else if (parser.CurrenToken.Type == TokenType.KwDo)
             {
                 parser.NextToken();
-                new Statementp().Process(parser);
+                new Statementp().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.KwWhile)
                 {
                     parser.NextToken();
                     if (parser.CurrenToken.Type == TokenType.PmLeftParent)
                     {
                         parser.NextToken();
-                        new AssignmentExpression().Process(parser);
+                        new AssignmentExpression().Process(parser, parameters);
                         if (parser.CurrenToken.Type == TokenType.PmRightParent)
                         {
                             parser.NextToken();
@@ -189,7 +190,7 @@ namespace scriptea.Parsing.Statements
             else if (parser.CurrenToken.Type == TokenType.KwReturn)
             {
                 parser.NextToken();
-                new ExpressionOpt().Process(parser);
+                new ExpressionOpt().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                 {
                     parser.NextToken();
@@ -202,13 +203,13 @@ namespace scriptea.Parsing.Statements
             else if (parser.CurrenToken.Type == TokenType.KwTry)
             {
                 parser.NextToken();
-                new CompoundStatement().Process(parser);
-                new CatchBlock().Process(parser);
-                new FinallyBlock().Process(parser);
+                new CompoundStatement().Process(parser, parameters);
+                new CatchBlock().Process(parser, parameters);
+                new FinallyBlock().Process(parser, parameters);
             }
             else
             {
-                new VariablesOrExpression().Process(parser);
+                new VariablesOrExpression().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                 {
                     parser.NextToken();
@@ -218,6 +219,7 @@ namespace scriptea.Parsing.Statements
                     throw new ParserException("This was expected ;");
                 }
             }
+            return null;
         }
     }
 }

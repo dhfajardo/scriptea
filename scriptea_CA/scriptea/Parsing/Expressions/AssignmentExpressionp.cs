@@ -1,11 +1,12 @@
-﻿using scriptea.Lexical;
+﻿using System.Collections.Generic;
+using scriptea.Lexical;
 using scriptea.Parsing.Operators;
 
 namespace scriptea.Parsing.Expressions
 {
     public class AssignmentExpressionp:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.OpAssig
                 || parser.CurrenToken.Type == TokenType.OpAssigMul
@@ -20,14 +21,15 @@ namespace scriptea.Parsing.Expressions
                 || parser.CurrenToken.Type == TokenType.OpAssigBitwiseOr
                 || parser.CurrenToken.Type == TokenType.OpAssigBitwiseXOr)
             {
-                new AssignmentOperator().Process(parser);
-                new ConditionalExpression().Process(parser);
-                this.Process(parser);
+                new AssignmentOperator().Process(parser, parameters);
+                new ConditionalExpression().Process(parser, parameters);
+                this.Process(parser, parameters);
             }
             else
             {
                 //Epsilon
             }
+            return null;
         }
     }
 }

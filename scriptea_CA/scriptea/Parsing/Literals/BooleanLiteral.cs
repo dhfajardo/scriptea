@@ -8,7 +8,7 @@ namespace scriptea.Parsing.Literals
 {
     public  class BooleanLiteral:INTerminal
     {
-        public void Process(Parser parser)
+        public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
             if (parser.CurrenToken.Type == TokenType.LitBool)
             {
@@ -18,6 +18,7 @@ namespace scriptea.Parsing.Literals
             {
                 throw  new ParserException("This was expected a literal boolean");
             }
+            return null;
         }
     }
 }
