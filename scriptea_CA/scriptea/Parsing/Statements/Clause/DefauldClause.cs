@@ -10,7 +10,7 @@ namespace scriptea.Parsing.Statements.Clause
             if (parser.CurrenToken.Type == TokenType.KwDefault)
             {
                 parser.NextToken();
-                if (parser.CurrenToken.Type == TokenType.PmDot)
+                if (parser.CurrenToken.Type == TokenType.PmColon)
                 {
                     parser.NextToken();
                     new Statementp().Process(parser, parameters);

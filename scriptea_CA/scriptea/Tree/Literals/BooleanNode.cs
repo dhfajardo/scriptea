@@ -4,6 +4,6 @@ namespace scriptea.Tree.Literals
 {
     public class BooleanNode:ExpressionNode
     {
-        public string Value { get; set; }
+        public bool Value { get; set; }
     }
 }

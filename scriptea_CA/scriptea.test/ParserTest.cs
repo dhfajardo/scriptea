@@ -197,7 +197,7 @@ namespace scriptea.test
             parser.Parse();
         }
 
-        [TestMethod]
+       /* [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestMultExp()
         {
@@ -208,13 +208,14 @@ namespace scriptea.test
             };
             foreach (var ls in list)
             {
-                var parser = new Parser(new Lexer(new InputStream(ls.ToString())));
+                var parser = new Parser(new Lexer(new InputStream(ls.ToString()
+                    )));
                 parser.StartINTerminal = new MultiplicativeExpression();
                 parser.Parse();
             }
             
         }
-
+        */
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestAddExpP()

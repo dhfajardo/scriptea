@@ -4,6 +4,6 @@ namespace scriptea.Tree.Literals
 {
     public class FloatNode:ExpressionNode
     {
-        public int Value { get; set; }
+        public float Value { get; set; }
     }
 }

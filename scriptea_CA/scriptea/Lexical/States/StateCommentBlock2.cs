@@ -13,7 +13,7 @@ namespace scriptea.Lexical.States
             if(pInput.CurrentSymbol == '/' || pInput.CurrentSymbol == '\r')
             {
                 //pLexeme.addSymbol(pInput.CurrentSymbol);
-                //pInput.ConsumeSymbol();
+                pInput.ConsumeSymbol();
                 //return new Token { Type = TokenType.COMMENT_BLOCK, LexemeVal = pLexeme.Value, Row = pInput.Row, Column = pInput.Column };
                 return new InitialState().ProcessState(pInput, pLexeme= new Lexeme());
             }

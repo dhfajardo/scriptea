@@ -1,0 +1,11 @@
+
+    function stop_Int()
+    {
+            if(intval!="67")
+            {
+               /*
+			hola queo ondas
+		*/    
+            }
+    }
+ 

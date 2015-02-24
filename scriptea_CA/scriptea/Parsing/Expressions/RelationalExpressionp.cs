@@ -14,7 +14,8 @@ namespace scriptea.Parsing.Expressions
                 || parser.CurrenToken.Type == TokenType.OpLessEqualThan
                 || parser.CurrenToken.Type == TokenType.OpNotEqual
                 || parser.CurrenToken.Type == TokenType.OpEquiv
-                || parser.CurrenToken.Type == TokenType.OpEqual)
+                || parser.CurrenToken.Type == TokenType.OpEqual
+                || parser.CurrenToken.Type == TokenType.OpNotEquiv)
             {
                 new RelationalOperator().Process(parser, parameters);
                 new ShiftExpression().Process(parser, parameters);
