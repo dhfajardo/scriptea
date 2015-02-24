@@ -16,7 +16,9 @@ namespace scriptea.Parsing.Statements
             else
             {
                 //Epsilon
-                throw new ParserException("This was expected the token: throw");
+                throw new ParserException("This was expected the token: throw, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

@@ -14,7 +14,9 @@ namespace scriptea.Parsing.Expressions.Constructor
             }
             else
             {
-                throw new ParserException("This was expected Identifier");
+                throw new ParserException("This was expected Identifier in constructor call, Received: " + 
+                    parser.CurrenToken.LexemeVal + ", Row: " + parser.CurrenToken.Row
+                    + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

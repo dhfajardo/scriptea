@@ -14,7 +14,7 @@ namespace scriptea.test
         //[ExpectedException(typeof(ParserException))]
         public void TestProgram()
         {
-            InputStream _input = new InputStream(System.IO.File.ReadAllText(@"C:\Users\hnfajardoa\Documents\GitHub\scriptea\Test\Parser\program1.txt"));
+            InputStream _input = new InputStream(System.IO.File.ReadAllText(@"C:\Users\hnfajardoa\Documents\GitHub\scriptea\Test\Parser\program2.txt"));
             var parser = new Parser(new Lexer(_input));
             parser.StartINTerminal = new Program();
             parser.Parse();

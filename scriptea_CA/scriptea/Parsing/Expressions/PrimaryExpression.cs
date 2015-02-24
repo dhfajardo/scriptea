@@ -20,7 +20,9 @@ namespace scriptea.Parsing.Expressions
                 }
                 else
                 {
-                    throw new ParserException("This was expected ) ");
+                    throw new ParserException("This was expected ) in the primary expression, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else if (parser.CurrenToken.Type == TokenType.PmLeftBracket)
@@ -33,7 +35,9 @@ namespace scriptea.Parsing.Expressions
                 }
                 else
                 {
-                    throw new ParserException("This was expected ]");
+                    throw new ParserException("This was expected ] in the primary expression, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else if (parser.CurrenToken.Type == TokenType.LitInteger)
@@ -58,7 +62,9 @@ namespace scriptea.Parsing.Expressions
             }
             else
             {
-                throw new ParserException("This was expected (, [, lit. int,lit. float, lit. bool or null");
+                throw new ParserException("This was expected (, [, lit. int,lit. float, lit. bool or null in the primary expression, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

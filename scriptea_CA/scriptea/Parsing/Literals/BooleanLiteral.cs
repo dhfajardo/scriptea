@@ -16,7 +16,9 @@ namespace scriptea.Parsing.Literals
             }
             else
             {
-                throw  new ParserException("This was expected a literal boolean");
+                throw new ParserException("This was expected a literal boolean, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

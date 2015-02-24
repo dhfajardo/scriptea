@@ -18,7 +18,9 @@ namespace scriptea.Parsing.Expressions.Constructor
                 }
                 else
                 {
-                    throw new ParserException("This was expected Identifier");
+                    throw new ParserException("This was expected ) in constructor call, Received: [" + 
+                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                    + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else if (parser.CurrenToken.Type == TokenType.PmDot)
@@ -29,10 +31,19 @@ namespace scriptea.Parsing.Expressions.Constructor
                     parser.NextToken();
                     this.Process(parser, parameters);
                 }
+                else
+                {
+                    throw new ParserException("This was expected a Identifier in constructor call, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
+
+                }
             }
             else
             {
-                throw new ParserException("This was expected a Identifier or (");
+                throw new ParserException("This was expected a Identifier or ( in constructor call, Received: [" +
+                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                    + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

@@ -22,7 +22,9 @@ namespace scriptea.Parsing.Others
                 }
                 else
                 {
-                    throw  new ParserException("This was expected a Identifier");
+                    throw new ParserException("This was expected a Identifier, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else if (parser.CurrenToken.Type == TokenType.PmLeftBracket)
@@ -36,7 +38,9 @@ namespace scriptea.Parsing.Others
                 }
                 else
                 {
-                    throw new ParserException("This was expected ]");
+                    throw new ParserException("This was expected ], Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else if (parser.CurrenToken.Type == TokenType.PmLeftParent)
@@ -50,7 +54,9 @@ namespace scriptea.Parsing.Others
                 }
                 else
                 {
-                    throw new ParserException("This was expected )");
+                    throw new ParserException("This was expected ), Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else

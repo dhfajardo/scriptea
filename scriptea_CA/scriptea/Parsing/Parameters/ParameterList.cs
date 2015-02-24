@@ -14,7 +14,9 @@ namespace scriptea.Parsing.Parameters
             }
             else
             {
-                throw new ParserException("This was expected a Identifier");
+                throw new ParserException("This was expected a Identifier in the parameter, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

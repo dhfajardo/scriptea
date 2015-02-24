@@ -23,17 +23,23 @@ namespace scriptea.Parsing.Statements.Blocks
                         }
                         else
                         {
-                            throw new ParserException("This was expected )");
+                            throw new ParserException("This was expected ) in the catch block, Received: [" +
+                           parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                           + ", Column: " + parser.CurrenToken.Column);
                         }
                     }
                     else
                     {
-                        throw  new ParserException("This was expected a Identifier");
+                        throw  new ParserException("This was expected a Identifier in the catch block, Received: [" +
+                           parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                           + ", Column: " + parser.CurrenToken.Column);
                     }
                 }
                 else
                 {
-                    throw new ParserException("This was expected (");
+                    throw new ParserException("This was expected ( in the catch block, Received: [" +
+                       parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                       + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else

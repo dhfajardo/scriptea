@@ -17,12 +17,16 @@ namespace scriptea.Parsing.Statements
                 }
                 else
                 {
-                    throw new ParserException("This was expected }");
+                    throw new ParserException("This was expected } Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else
             {
-                throw new ParserException("This was expected {");
+                throw new ParserException("This was expected { Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

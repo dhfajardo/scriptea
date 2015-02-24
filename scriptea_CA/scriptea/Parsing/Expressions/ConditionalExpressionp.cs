@@ -18,7 +18,9 @@ namespace scriptea.Parsing.Expressions
                 }
                 else
                 {
-                    throw new ParserException("This was expected :");
+                    throw new ParserException("This was expected : in the conditional expression, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else

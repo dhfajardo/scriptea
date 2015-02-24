@@ -18,7 +18,9 @@ namespace scriptea.Parsing.Statements.Clause
                 }
                 else
                 {
-                    throw new ParserException("This was expected :");
+                    throw new ParserException("This was expected : in the defauld clause, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else

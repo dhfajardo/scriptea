@@ -16,7 +16,9 @@ namespace scriptea.Parsing.Operators
             }
             else
             {
-                throw new ParserException("This was expected --");
+                throw new ParserException("This was expected --, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

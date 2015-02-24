@@ -48,7 +48,9 @@ namespace scriptea.Parsing.Expressions
             }
             else
             {
-                throw new ParserException("This was expected a UnaryExpresion");
+                throw new ParserException("This was expected a UnaryExpresion, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }

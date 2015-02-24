@@ -22,12 +22,16 @@ namespace scriptea.Parsing.Statements.Clause
                 }
                 else
                 {
-                    throw new ParserException("This was expected :");
+                    throw new ParserException("This was expected : in the case clause, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
                 }
             }
             else
             {
-                throw new ParserException("This was expected the tokent: case");
+                throw new ParserException("This was expected the tokent: case, Received: [" +
+                   parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
+                   + ", Column: " + parser.CurrenToken.Column);
             }
             return null;
         }
