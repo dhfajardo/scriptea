@@ -27,7 +27,9 @@ namespace scriptea.Parsing
             var result = StartINTerminal.Process(this, null);
             if (_currenToken.Type != TokenType.Eof)
             {
-                throw  new ParserException("This was expected EOF");
+                throw new ParserException("This was expected EOF, Received: [" +
+                   _currenToken.LexemeVal + "], Row: " + _currenToken.Row
+                   + ", Column: " + _currenToken.Column);
             }
             return result;
         }

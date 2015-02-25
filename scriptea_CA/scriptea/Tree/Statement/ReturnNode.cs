@@ -2,7 +2,7 @@
 
 namespace scriptea.Tree.Statement
 {
-    public class ReturnNode:ExpressionNode
+    public class ReturnNode:StatementNode
     {
         public ExpressionNode ExpressionOptNode { get; set; }
     }

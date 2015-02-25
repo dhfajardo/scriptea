@@ -4,7 +4,7 @@ using scriptea.Tree.Expression;
 
 namespace scriptea.Tree.Statement
 {
-    public class BreakNode:ExpressionNode
+    public class BreakNode:StatementNode
     {
         
     }

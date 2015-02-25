@@ -2,7 +2,7 @@
 
 namespace scriptea.Tree.Statement
 {
-    public class ElseNode:ExpressionNode
+    public class ElseNode:StatementNode
     {
         public ExpressionNode StatementNode { get; set; }
     }

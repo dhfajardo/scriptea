@@ -7,7 +7,7 @@ using scriptea.Tree.Expression;
 
 namespace scriptea.Tree.Statement
 {
-    public class IfNode:ExpressionNode
+    public class IfNode:StatementNode
     {
         public ExpressionNode AssignmentExpressionNode { get; set; }
         public ExpressionNode StatementNode { get; set; }

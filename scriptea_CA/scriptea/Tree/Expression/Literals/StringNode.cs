@@ -1,6 +1,4 @@
-﻿using scriptea.Tree.Expression;
-
-namespace scriptea.Tree.Literals
+﻿namespace scriptea.Tree.Expression.Literals
 {
     public class StringNode:ExpressionNode
     {

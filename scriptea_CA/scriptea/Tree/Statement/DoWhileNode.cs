@@ -2,9 +2,9 @@
 
 namespace scriptea.Tree.Statement
 {
-    public class DoWhileNode:ExpressionNode
+    public class DoWhileNode:StatementNode
     {
-        public ExpressionNode StatementNode { get; set; }
+        public StatementNode Code { get; set; }
         public ExpressionNode AssignmentNode { get; set; }
     }
 }

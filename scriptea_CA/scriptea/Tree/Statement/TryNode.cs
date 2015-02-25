@@ -2,7 +2,7 @@
 
 namespace scriptea.Tree.Statement
 {
-    public class TryNode:ExpressionNode
+    public class TryNode:StatementNode
     {
         public ExpressionNode CompoundStatementNode { get; set; }
         public ExpressionNode CatchBlockNode { get; set; }

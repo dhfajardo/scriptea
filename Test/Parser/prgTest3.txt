@@ -1,0 +1,4 @@
+google.maps.event.addListener(map, 'zoom_changed', function() {
+    coordInfoWindow.setContent(createInfoWindowContent());
+    coordInfoWindow.open(map);
+  });

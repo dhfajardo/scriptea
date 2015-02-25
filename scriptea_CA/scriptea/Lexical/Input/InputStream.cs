@@ -48,7 +48,7 @@ namespace scriptea.Lexical.Input
                 _currentSymPos++;
                 if (CurrentSymbol == '\n' || CurrentSymbol == '\r')
                 {
-                    if (!_ctrlEL)
+                    if (_buffer[_currentSymPos - 1] == '\n'/*!_ctrlEL*/)
                     {
                         _column = 0;
                         _row++;

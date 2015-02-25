@@ -11,7 +11,7 @@ namespace scriptea_CA
     {
         static void Main(string[] args)
         {
-            InputStream _input = new InputStream(System.IO.File.ReadAllText(@"C:\Users\hnfajardoa\Documents\GitHub\scriptea\Test\Parser\program1.txt"));
+            InputStream _input = new InputStream(System.IO.File.ReadAllText(@"C:\Users\hnfajardoa\Documents\GitHub\scriptea\Test\Parser\prgTest2.txt"));
             Token _token = new Token();
             Lexer _lexer = new Lexer();
             try

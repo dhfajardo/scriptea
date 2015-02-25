@@ -14,11 +14,21 @@ namespace scriptea.test
         //[ExpectedException(typeof(ParserException))]
         public void TestProgram()
         {
-            InputStream _input = new InputStream(System.IO.File.ReadAllText(@"C:\Users\hnfajardoa\Documents\GitHub\scriptea\Test\Parser\program2.txt"));
+            InputStream _input = new InputStream(System.IO.File.ReadAllText(@"C:\Users\hnfajardoa\Documents\GitHub\scriptea\Test\Parser\prgTest2.txt"));
             var parser = new Parser(new Lexer(_input));
             parser.StartINTerminal = new Program();
             parser.Parse();
             
+        }
+        [TestMethod]
+        //[ExpectedException(typeof(ParserException))]
+        public void TestProgram2()
+        {
+            InputStream _input = new InputStream(System.IO.File.ReadAllText(@"C:\Users\hnfajardoa\Documents\GitHub\scriptea\Test\Parser\program3.txt"));
+            var parser = new Parser(new Lexer(_input));
+            parser.StartINTerminal = new Program();
+            parser.Parse();
+
         }
     }
 }

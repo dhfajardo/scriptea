@@ -1,0 +1,65 @@
+function bu(param1, id, param3, nada)
+{
+	try
+	{
+		// Operadores
+		izq=00011100 << 1;
+		der=00011100 >> 1;
+		// Assignment
+		izq*=2;
+		izq/=2;
+		izq%=2;
+		izq+=2;
+		izq-=2;
+		izq<<=8;
+		izq>>=8;
+		izq>>>=5;
+		izq&=4;
+		izq^=3;
+		izq|=3;
+		izq+=4;
+		izq-=5;		
+		txt1="tun ";
+		txt2="tun ";
+		txt=txt1+txt2;
+		id = ~id2;
+		// Relational
+		// Shift
+		// Additive
+		// Multiplicative
+		// Unary
+		// Increment
+		// Decrement
+
+		var x = 16 + "msgs";
+		y=123-5;
+		b=true;
+		if (x==8) {
+			while (x===8)
+			{
+				text += "The number is " + i;
+ 				i++;
+			}
+		}
+		else{
+			do
+			{
+			    i--;
+			    for (;;)
+			    {
+			    }
+			} while (!b)
+			bu();
+		}
+		return i;		
+		
+	}
+	catch(id){throw new Exception(id.message.toString());}	
+	finally
+	{
+		for(var i = 0; i < arrayP.length; i++)
+		{
+          		alert(arrayP[i].value);
+    		}			
+	}
+}

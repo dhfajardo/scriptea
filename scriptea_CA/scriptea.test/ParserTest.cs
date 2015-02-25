@@ -575,9 +575,18 @@ namespace scriptea.test
         //[ExpectedException(typeof(ParserException))]
         public void TestStm()
         {
-            var parser = new Parser(new Lexer(new InputStream(";")));
-            parser.StartINTerminal = new Statement();
-            parser.Parse();
+            ArrayList list = new ArrayList
+            {
+                "for (i = 0; i < cars.length; i++) {    text += cars[i] + \"<br>\";}"
+                ,"for (i = 0, len = cars.length, text = \"\"; i < len; i++) {    text += cars[i] + \"<br>\";}"
+                ,"for (; i < len; i++) {    text += cars[i] + \"<br>\";}"
+            };
+            foreach (var ind in list)
+            {
+                var parser = new Parser(new Lexer(new InputStream(ind.ToString())));
+                parser.StartINTerminal = new Statement();
+                parser.Parse();
+            }
         }
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]

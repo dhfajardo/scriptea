@@ -2,7 +2,7 @@
 
 namespace scriptea.Tree.Statement
 {
-    public class ContinueNode:ExpressionNode
+    public class ContinueNode:StatementNode
     {
         
     }
