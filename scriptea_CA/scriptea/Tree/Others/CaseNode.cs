@@ -4,6 +4,6 @@ namespace scriptea.Tree.Others
 {
     public class CaseNode:BaseCaseNode
     {
-        public ExpressionNode AssignmentExpressionNode { get; set; }
+        public ExpressionNode EvaluationNode { get; set; }
     }
 }

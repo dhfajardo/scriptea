@@ -12,3 +12,10 @@ C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea_CA\bin\Debug\
 C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea_CA\bin\Debug\scriptea.dll
 C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea_CA\bin\Debug\scriptea.pdb
 C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea_CA\obj\Debug\scriptea_CA.csprojResolveAssemblyReference.cache
+C:\scriptea\scriptea_CA\scriptea_CA\obj\Debug\scriptea_CA.exe
+C:\scriptea\scriptea_CA\scriptea_CA\obj\Debug\scriptea_CA.pdb
+C:\scriptea\scriptea_CA\scriptea_CA\bin\Debug\scriptea_CA.exe
+C:\scriptea\scriptea_CA\scriptea_CA\bin\Debug\scriptea_CA.pdb
+C:\scriptea\scriptea_CA\scriptea_CA\bin\Debug\scriptea.dll
+C:\scriptea\scriptea_CA\scriptea_CA\bin\Debug\scriptea.pdb
+C:\scriptea\scriptea_CA\scriptea_CA\obj\Debug\scriptea_CA.csprojResolveAssemblyReference.cache

@@ -5,9 +5,11 @@ namespace scriptea.Tree.Statement
 {   
     public class ForNode:StatementNode
     {
-        public List<ExpressionNode> StartExpression { get; set; }
-        public List<ExpressionNode> EvaluationExpression { get; set; }
-        public List<ExpressionNode> EndExpression { get; set; }
+        public List<ExpressionNode> StartExpressionNodes { get; set; }
+        public List<ExpressionNode> EvaluationExpressionNodes { get; set; }
+        public List<ExpressionNode> EndExpressionNodes { get; set; }
+
+        public StatementNode CodeNode { get; set; }
 
     }
 }

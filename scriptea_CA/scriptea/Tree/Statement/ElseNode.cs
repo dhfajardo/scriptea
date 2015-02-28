@@ -4,6 +4,6 @@ namespace scriptea.Tree.Statement
 {
     public class ElseNode:StatementNode
     {
-        public ExpressionNode StatementNode { get; set; }
+        public StatementNode CodeNode { get; set; }
     }
 }

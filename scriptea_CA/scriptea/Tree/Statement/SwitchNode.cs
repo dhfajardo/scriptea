@@ -5,7 +5,7 @@ namespace scriptea.Tree.Statement
 {
     public class SwitchNode:StatementNode
     {
-        public ExpressionNode AssignmentExpressionNode { get; set; }
-        public BaseCaseNode CaseBlockNode { get; set; }
+        public ExpressionNode EvaluationNode { get; set; }
+        public /*BaseCaseNode*/ CaseNode CaseBlockNode { get; set; }
     }
 }

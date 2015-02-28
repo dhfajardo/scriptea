@@ -9,8 +9,8 @@ namespace scriptea.Tree.Statement
 {
     public class IfNode:StatementNode
     {
-        public ExpressionNode AssignmentExpressionNode { get; set; }
+        public ExpressionNode EvaluationNode { get; set; }
         public StatementNode IfCode { get; set; }
-        public StatementNode IfNotCode { get; set; }
+        public ElseNode IfNotCode { get; set; }
     }
 }

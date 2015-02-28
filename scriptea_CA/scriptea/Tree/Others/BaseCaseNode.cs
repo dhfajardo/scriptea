@@ -1,10 +1,11 @@
 using scriptea.Tree.Expression;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Tree.Others
 {
     public class BaseCaseNode
     {
-        public ExpressionNode StatementListNode { get; set; }
-        public BaseCaseNode NextCase { get; set; }
+        public StatementNode CodeNode { get; set; }
+        public /*BaseCaseNode*/ CaseNode NextCase { get; set; }
     }
 }
