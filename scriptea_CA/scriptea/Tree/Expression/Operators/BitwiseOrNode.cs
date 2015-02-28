@@ -1,7 +1,6 @@
 ﻿namespace scriptea.Tree.Expression.Operators
 {
-    public class SumOperatorNode:BinaryOperatorNode
+    public class BitwiseOrNode:BinaryOperatorNode
     {
-       
     }
 }

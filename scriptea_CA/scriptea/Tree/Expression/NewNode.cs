@@ -1,6 +1,4 @@
-using scriptea.Tree.Expression;
-
-namespace scriptea.Tree.Others
+namespace scriptea.Tree.Expression
 {
     public class NewNode:ExpressionNode
     {

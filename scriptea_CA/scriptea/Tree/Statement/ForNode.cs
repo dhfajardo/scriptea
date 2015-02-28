@@ -1,10 +1,13 @@
-﻿using scriptea.Tree.Expression;
+﻿using System.Collections.Generic;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Tree.Statement
 {   
     public class ForNode:StatementNode
     {
-        public ExpressionNode ForConditions { get; set; }
-        public ExpressionNode StatementNode { get; set; }
+        public List<ExpressionNode> StartExpression { get; set; }
+        public List<ExpressionNode> EvaluationExpression { get; set; }
+        public List<ExpressionNode> EndExpression { get; set; }
+
     }
 }

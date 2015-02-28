@@ -4,8 +4,9 @@ namespace scriptea.Tree.Statement
 {
     public class TryNode:StatementNode
     {
-        public ExpressionNode CompoundStatementNode { get; set; }
-        public ExpressionNode CatchBlockNode { get; set; }
-        public ExpressionNode FinallyNode { get; set; }
+        public IdNode ExceptionID { get; set; }
+        public StatementNode TryCode { get; set; }
+        public StatementNode CatchBlockCode { get; set; }
+        public StatementNode FinallyCode { get; set; }
     }
 }

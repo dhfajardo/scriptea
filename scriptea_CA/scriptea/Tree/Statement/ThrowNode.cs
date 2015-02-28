@@ -1,8 +1,8 @@
 using scriptea.Tree.Expression;
 
-namespace scriptea.Tree.Others
+namespace scriptea.Tree.Statement
 {
-    public class ThrowNode:ExpressionNode
+    public class ThrowNode:StatementNode
     {
         public ExpressionNode ThrowStatementNode { get; set; }
     }
