@@ -10,7 +10,7 @@ namespace scriptea.Tree.Statement
     public class IfNode:StatementNode
     {
         public ExpressionNode EvaluationNode { get; set; }
-        public StatementNode IfCode { get; set; }
+        public List<StatementNode> IfCode { get; set; }
         public ElseNode IfNotCode { get; set; }
     }
 }

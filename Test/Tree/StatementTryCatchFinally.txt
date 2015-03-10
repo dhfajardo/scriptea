@@ -1,0 +1,28 @@
+<TryNode>
+  <ExceptionID>
+    <Name>id</Name>
+  </ExceptionID>
+  <TryCode>
+    <AssigStatementNode>
+      <AssignmentExpressionNode>
+        <AssigOperatorNode>
+          <LeftNode>
+            <Name>id</Name>
+          </LeftNode>
+          <RightNode>
+            <Name>id2</Name>
+          </RightNode>
+        </AssigOperatorNode>
+      </AssignmentExpressionNode>
+    </AssigStatementNode>
+  </TryCode>
+  <CatchBlockCode>
+    <Id>
+      <Name>id</Name>
+    </Id>
+    <CodeCatch />
+  </CatchBlockCode>
+  <FinallyCode>
+    <FinallyCode />
+  </FinallyCode>
+</TryNode>

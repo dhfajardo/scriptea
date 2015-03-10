@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Parsing.Expressions.Constructor;
+using scriptea.Tree.Expression;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing.Statements
 {
@@ -11,7 +13,9 @@ namespace scriptea.Parsing.Statements
             if (parser.CurrenToken.Type == TokenType.KwThrow)
             {
                 parser.NextToken();
-                new ThrowStatementp().Process(parser, parameters);
+                var _statThrow = (ExpressionNode) new ThrowStatementp().Process(parser, parameters);
+                var _throw = new ThrowNode {ThrowStatementNode = _statThrow};
+                return _throw;
             }
             else
             {
@@ -20,7 +24,6 @@ namespace scriptea.Parsing.Statements
                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
                    + ", Column: " + parser.CurrenToken.Column);
             }
-            return null;
         }
     }
 }

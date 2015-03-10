@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Parsing.Operators;
 using scriptea.Parsing.Expressions.Constructor;
+using scriptea.Tree.Expression;
+using scriptea.Tree.Expression.Operators;
+using scriptea.Tree.Expression.Operators.UnaryOperators;
 
 namespace scriptea.Parsing.Expressions
 {
@@ -9,10 +12,12 @@ namespace scriptea.Parsing.Expressions
     {
         public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
+            //var _valueEp = (ExpressionNode) parameters["ValueEp"];
             if (parser.CurrenToken.Type == TokenType.Id)
             {
-                new MemberExpression().Process(parser, parameters);
-                new UnaryExpressionp().Process(parser, parameters);
+                var _memberEp = new MemberExpression().Process(parser, null);
+                return new UnaryExpressionp().Process(parser
+                    , new SortedDictionary<string, object>(){{"ValueId", _memberEp}});
             }
             else if (parser.CurrenToken.Type == TokenType.PmLeftParent
                 || parser.CurrenToken.Type == TokenType.PmLeftBracket
@@ -22,29 +27,37 @@ namespace scriptea.Parsing.Expressions
                 || parser.CurrenToken.Type == TokenType.LitBool
                 || parser.CurrenToken.Type == TokenType.KwNull)
             {
-                new PrimaryExpression().Process(parser, parameters);
+                return new PrimaryExpression().Process(parser, null);
             }
             else if (parser.CurrenToken.Type == TokenType.OpNot
                      || parser.CurrenToken.Type == TokenType.OpSub
                      || parser.CurrenToken.Type == TokenType.OpNotBit)
             {
-                new UnaryOperator().Process(parser, parameters);
-                this.Process(parser, parameters);
+                var _unaryOp = (BaseUnaryOperatorNode) new UnaryOperator().Process(parser, null);
+                var _unaryEp = (ExpressionNode) this.Process(parser,null);
+                _unaryOp.ValueNode = _unaryEp;
+                return _unaryOp;
             }
             else if (parser.CurrenToken.Type == TokenType.OpInc)
             {
-                new IncrementOperator().Process(parser, parameters);
-                new MemberExpression().Process(parser, parameters);
+                var _incOp = (IncPreOperatorNode) new IncrementOperator().Process(parser
+                    , new SortedDictionary<string, object>() {{"Flag", "Pre"}});
+                var _memberEp = (ExpressionNode) new MemberExpression().Process(parser, null);
+                _incOp.ValueNode =  _memberEp;
+                return _incOp;
             }
             else if (parser.CurrenToken.Type == TokenType.OpDec)
             {
-                new DecrementOperator().Process(parser, parameters);
-                new MemberExpression().Process(parser, parameters);
+                var _decOp = (DecPreOperatorNode) new DecrementOperator().Process(parser
+                    , new SortedDictionary<string, object>() {{"Flag", "Pre"}});
+                var _memberEp = (ExpressionNode) new MemberExpression().Process(parser, null);
+                _decOp.ValueNode =  _memberEp;
+                return _decOp;
             }
             else if (parser.CurrenToken.Type == TokenType.KwNew)
             {
                 parser.NextToken();
-                new ConstructorCall().Process(parser, parameters);
+                return new ConstructorCall().Process(parser, parameters);
             }
             else
             {
@@ -52,7 +65,6 @@ namespace scriptea.Parsing.Expressions
                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
                    + ", Column: " + parser.CurrenToken.Column);
             }
-            return null;
         }
     }
 }

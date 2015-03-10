@@ -10,10 +10,11 @@ namespace scriptea.Parsing.Statements
             if (parser.CurrenToken.Type == TokenType.PmLeftCurlyBracket)
             {
                 parser.NextToken();
-                new StatementList().Process(parser, parameters);
+                var _statementLit = new StatementList().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmRightCurlyBracket)
                 {
                     parser.NextToken();
+                    return _statementLit;
                 }
                 else
                 {
@@ -28,7 +29,6 @@ namespace scriptea.Parsing.Statements
                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
                    + ", Column: " + parser.CurrenToken.Column);
             }
-            return null;
         }
     }
 }

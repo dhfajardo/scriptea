@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Parsing.Expressions.Constructor
 {
@@ -9,8 +10,12 @@ namespace scriptea.Parsing.Expressions.Constructor
         {
             if (parser.CurrenToken.Type == TokenType.Id)
             {
+                string _idName = parser.CurrenToken.LexemeVal;
                 parser.NextToken();
-                new ConstructorCallp().Process(parser, parameters);
+                var _idNode = new IdNode {Name = _idName};
+                var _accesor = (Accesor) new ConstructorCallp().Process(parser, parameters);
+                _idNode.Accesor = _accesor;
+                return _idNode;
             }
             else
             {
@@ -18,7 +23,6 @@ namespace scriptea.Parsing.Expressions.Constructor
                     parser.CurrenToken.LexemeVal + ", Row: " + parser.CurrenToken.Row
                     + ", Column: " + parser.CurrenToken.Column);
             }
-            return null;
         }
     }
 }

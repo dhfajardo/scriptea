@@ -1,0 +1,18 @@
+<ThrowNode>
+  <ThrowStatementNode>
+    <ConstructorNode>
+      <Name>suma</Name>
+      <Accesor>
+        <Name>id</Name>
+        <ParameterList>
+          <IntegerNode>
+            <Value>1</Value>
+          </IntegerNode>
+          <IntegerNode>
+            <Value>true</Value>
+          </IntegerNode>
+        </ParameterList>
+      </Accesor>
+    </ConstructorNode>
+  </ThrowStatementNode>
+</ThrowNode>

@@ -1,0 +1,3 @@
+<IntegerNode>
+  <Value>12345</Value>
+</IntegerNode>

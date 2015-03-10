@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Others;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing.Statements.Clause
 {
@@ -13,8 +15,10 @@ namespace scriptea.Parsing.Statements.Clause
                 if (parser.CurrenToken.Type == TokenType.PmColon)
                 {
                     parser.NextToken();
-                    new Statementp().Process(parser, parameters);
-                    new CaseClauseList().Process(parser, parameters);
+                    var _defauldCode = (List<StatementNode>) new Statementp().Process(parser, parameters);
+                    var _defauld = new DefauldNode {CodeNode = _defauldCode};
+                    _defauld.NextCase = (CaseNode) new CaseClauseList().Process(parser, parameters);
+                    return _defauld;
                 }
                 else
                 {
@@ -25,9 +29,8 @@ namespace scriptea.Parsing.Statements.Clause
             }
             else
             {
-                //Epsilon   
+                return new DefauldNode();
             }
-            return null;
         }
     }
 }

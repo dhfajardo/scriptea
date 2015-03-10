@@ -2,7 +2,7 @@
 {
     public class BaseAssigOperatorNode:ExpressionNode
     {
-        public IdNode LeftNode { get; set; }
+        public /*IdNode*/ ExpressionNode LeftNode { get; set; }
         public ExpressionNode RightNode { get; set; }
     }
 }

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -149,6 +153,7 @@
     <Compile Include="Tree\Expression\Accesor.cs" />
     <Compile Include="Tree\Expression\ExpressionNode.cs" />
     <Compile Include="Tree\Expression\FunctionNode.cs" />
+    <Compile Include="Tree\Expression\Literals\ArrayNode.cs" />
     <Compile Include="Tree\Expression\Operators\AndNode.cs" />
     <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigBitwiseAndOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigBitwiseOrOperatorNode.cs" />
@@ -157,6 +162,7 @@
     <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigLeftShiftOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigModOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigMulOperatorNode.cs" />
+    <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigNode.cs" />
     <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigRightShiftOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigRightZeroFillShiftOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigSubOperatorNode.cs" />
@@ -181,7 +187,7 @@
     <Compile Include="Tree\Expression\Literals\IntegerNode.cs" />
     <Compile Include="Tree\Expression\Literals\NullNode.cs" />
     <Compile Include="Tree\Expression\Literals\StringNode.cs" />
-    <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssignmentOperatorNode.cs" />
+    <Compile Include="Tree\Expression\Operators\AssignmentOperators\AssigOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\BinaryOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\MultiplicativeOperators\DivOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\RelationalOperators\EqualOperatorNode.cs" />
@@ -201,10 +207,12 @@
     <Compile Include="Tree\Expression\Operators\AdditiveOperators\SumOperatorNode.cs" />
     <Compile Include="Tree\Others\BaseCaseNode.cs" />
     <Compile Include="Tree\Others\CaseNode.cs" />
+    <Compile Include="Tree\Others\CatchNode.cs" />
     <Compile Include="Tree\Others\DefauldNode.cs" />
     <Compile Include="Tree\Expression\NewNode.cs" />
+    <Compile Include="Tree\Others\FinallyNode.cs" />
     <Compile Include="Tree\Statement\ThrowNode.cs" />
-    <Compile Include="Tree\Statement\AssignmentNode.cs" />
+    <Compile Include="Tree\Statement\AssigStatementNode.cs" />
     <Compile Include="Tree\Statement\BreakNode.cs" />
     <Compile Include="Tree\Statement\ContinueNode.cs" />
     <Compile Include="Tree\Statement\DoWhileNode.cs" />
@@ -219,7 +227,9 @@
     <Compile Include="Tree\Statement\TryNode.cs" />
     <Compile Include="Tree\Statement\WhileNode.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

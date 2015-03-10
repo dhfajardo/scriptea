@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Expression;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing.Statements
 {
@@ -9,13 +11,15 @@ namespace scriptea.Parsing.Statements
         {
             if (parser.CurrenToken.Type == TokenType.PmLeftCurlyBracket)
             {
-                new CompoundStatement().Process(parser, parameters);
+                return new CompoundStatement().Process(parser, parameters);
             }
             else
             {
-                new Statement().Process(parser, parameters);
+                var _singleStatement = (StatementNode) new Statement().Process(parser, parameters);
+                var _statementList = new List<StatementNode>();
+                _statementList.Insert(0,_singleStatement);
+                return _statementList;
             }
-            return null;
         }
     }
 }

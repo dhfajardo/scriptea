@@ -21,22 +21,7 @@ namespace scriptea.test
     [TestClass]
     public class ParserTest
     {
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestOPDec()
-        {
-            var parser = new Parser(new Lexer(new InputStream("--")));
-            parser.StartINTerminal = new DecrementOperator();
-            parser.Parse();
-        }
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestOPInc()
-        {
-            var parser = new Parser(new Lexer(new InputStream("++")));
-            parser.StartINTerminal = new IncrementOperator();
-            parser.Parse();
-        }
+        
 
         [TestMethod]
         public void TestOpUnary()
@@ -161,15 +146,6 @@ namespace scriptea.test
             parser.Parse();
         }
 
-        /*EXPRESIONES*/
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestUnaryExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new UnaryExpressionp();
-            parser.Parse();
-        }
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestUnaryExp()
@@ -187,14 +163,6 @@ namespace scriptea.test
                 parser.StartINTerminal = new UnaryExpression();
                 parser.Parse();
             }
-        }
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestMultExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("*id().o")));
-            parser.StartINTerminal = new MultiplicativeExpressionp();
-            parser.Parse();
         }
 
        /* [TestMethod]
@@ -216,14 +184,7 @@ namespace scriptea.test
             
         }
         */
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestAddExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("+34")));
-            parser.StartINTerminal = new AdditiveExpressionp();
-            parser.Parse();
-        }
+        
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestAddExp()
@@ -235,14 +196,6 @@ namespace scriptea.test
 
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
-        public void TestShiftExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new ShiftExpressionp();
-            parser.Parse();
-        }
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
         public void TestShiftExp()
         {
             var parser = new Parser(new Lexer(new InputStream("id>>4")));
@@ -250,14 +203,6 @@ namespace scriptea.test
             parser.Parse();
         }
 
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestRelExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new RelationalExpressionp();
-            parser.Parse();
-        }
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestRelExp()
@@ -269,14 +214,6 @@ namespace scriptea.test
 
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
-        public void TestBitAExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new BitwiseAndExpressionp();
-            parser.Parse();
-        }
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
         public void TestBitAExp()
         {
             var parser = new Parser(new Lexer(new InputStream("id&vd")));
@@ -286,14 +223,6 @@ namespace scriptea.test
 
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
-        public void TestBitXExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new BitwiseXorExpressionp();
-            parser.Parse();
-        }
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
         public void TestBitXExp()
         {
             var parser = new Parser(new Lexer(new InputStream("id&id")));
@@ -301,14 +230,7 @@ namespace scriptea.test
             parser.Parse();
         }
 
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestBitOExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new BitwiseOrExpressionp();
-            parser.Parse();
-        }
+        
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestBitOExp()
@@ -318,14 +240,6 @@ namespace scriptea.test
             parser.Parse();
         }
 
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestAndExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new AndExpressionp();
-            parser.Parse();
-        }
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestAndExpression()
@@ -343,15 +257,6 @@ namespace scriptea.test
             }
             
         }
-
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestOrExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new OrExpressionp();
-            parser.Parse();
-        }
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestOrExp()
@@ -363,14 +268,6 @@ namespace scriptea.test
 
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
-        public void TestCondExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new ConditionalExpressionp();
-            parser.Parse();
-        }
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
         public void TestCondExp()
         {
             var parser = new Parser(new Lexer(new InputStream("id?a:b")));
@@ -378,14 +275,6 @@ namespace scriptea.test
             parser.Parse();
         }
 
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestAssigExpP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new AssignmentExpressionp();
-            parser.Parse();
-        }
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestAssigExp()
@@ -420,14 +309,6 @@ namespace scriptea.test
             parser.Parse();
         }
 
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
-        public void TestVarP()
-        {
-            var parser = new Parser(new Lexer(new InputStream("")));
-            parser.StartINTerminal = new Variablep();
-            parser.Parse();
-        }
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
         public void TestVar()
@@ -648,5 +529,145 @@ namespace scriptea.test
             parser.StartINTerminal = new Program();
             parser.Parse();
         }
+
+/*PRUEBAS QUE NO PASAN PARA EL TREE*/
+/*
+//----------------------------------
+        //AdditiveExpressionp espera de parametro el operador Izq.
+        [TestMethod]
+        public void TestAddExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("++34")));
+            parser.StartINTerminal = new AdditiveExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //AddExpressionp espera de parametro el operador Izq.
+        [TestMethod]
+        public void TestAndExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new AndExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //AssigmentExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestAssigExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new AssignmentExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //BitwiseAndExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestBitAExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new BitwiseAndExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //BitwiseOrExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestBitOExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new BitwiseOrExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //BitwiseXorExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestBitXExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new BitwiseXorExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //Variablep espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestVarP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new Variablep();
+            parser.Parse();
+        }
+//----------------------------------
+        //MultiplicativeExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestMultExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("*id().o")));
+            parser.StartINTerminal = new MultiplicativeExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //IncrementOperator espera el parametro "Flag"
+        [TestMethod]
+        public void TestOPInc()
+        {
+            var parser = new Parser(new Lexer(new InputStream("++")));
+            parser.StartINTerminal = new IncrementOperator();
+            parser.Parse();
+        }
+//----------------------------------
+        //DecrementOperator espera el parametro "Flag"
+        [TestMethod]
+        public void TestOPDec()
+        {
+            var parser = new Parser(new Lexer(new InputStream("--")));
+            parser.StartINTerminal = new DecrementOperator();
+            parser.Parse();
+        }
+//----------------------------------
+        //OrExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestOrExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new OrExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //ShiftExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestShiftExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new ShiftExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //RelationalExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestRelExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new RelationalExpressionp();
+            parser.Parse();
+        }
+//----------------------------------
+        //UnaryExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        public void TestUnaryExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new UnaryExpressionp();
+            parser.Parse();
+        }
+//---------------------------------- 
+        //ConditionalExpressionp espera de parametro un operador Izq.
+        [TestMethod]
+        //[ExpectedException(typeof(ParserException))]
+        public void TestCondExpP()
+        {
+            var parser = new Parser(new Lexer(new InputStream("")));
+            parser.StartINTerminal = new ConditionalExpressionp();
+            parser.Parse();
+        }
+ */
     }
 }

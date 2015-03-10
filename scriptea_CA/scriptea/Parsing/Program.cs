@@ -2,6 +2,7 @@
 using scriptea.Lexical;
 using scriptea.Parsing.Parameters;
 using scriptea.Parsing.Statements;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing
 {
@@ -37,14 +38,15 @@ namespace scriptea.Parsing
                 || parser.CurrenToken.Type == TokenType.OpDec
                 || parser.CurrenToken.Type == TokenType.KwNew)
             {
-                new Element().Process(parser, parameters);
-                this.Process(parser, parameters);
+                var _singleElement = (StatementNode) new Element().Process(parser, parameters);
+                var _elements = (List<StatementNode>) this.Process(parser, parameters);
+                _elements.Insert(0,_singleElement);
+                return _elements;
             }
             else
             {
-                //Epsilon
+                return new List<StatementNode>();
             }
-            return null;
         }
     }
 }

@@ -1,0 +1,28 @@
+<WhileNode>
+  <EvaluationNode>
+    <LeftNode>
+      <Value>hola</Value>
+    </LeftNode>
+    <RightNode>
+      <Value>hola</Value>
+    </RightNode>
+  </EvaluationNode>
+  <CodeNode>
+    <WhileNode>
+      <EvaluationNode>
+        <Value>true</Value>
+      </EvaluationNode>
+      <CodeNode>
+        <AssigStatementNode>
+          <AssignmentExpressionNode>
+            <IncPosOperatorNode>
+              <ValueNode>
+                <Name>count</Name>
+              </ValueNode>
+            </IncPosOperatorNode>
+          </AssignmentExpressionNode>
+        </AssigStatementNode>
+      </CodeNode>
+    </WhileNode>
+  </CodeNode>
+</WhileNode>

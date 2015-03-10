@@ -1,0 +1,12 @@
+<AssigStatementNode>
+  <AssignmentExpressionNode>
+    <NotEqualOperatorNode>
+      <LeftNode>
+        <Name>id1</Name>
+      </LeftNode>
+      <RightNode>
+        <Name>id2</Name>
+      </RightNode>
+    </NotEqualOperatorNode>
+  </AssignmentExpressionNode>
+</AssigStatementNode>

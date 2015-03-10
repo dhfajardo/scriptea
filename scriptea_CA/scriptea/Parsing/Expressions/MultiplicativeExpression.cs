@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Parsing.Operators;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Parsing.Expressions
 {
@@ -8,9 +9,9 @@ namespace scriptea.Parsing.Expressions
     {
         public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
-            new UnaryExpression().Process(parser, parameters);
-            new MultiplicativeExpressionp().Process(parser, parameters);
-            return null;
+            var _leftNode = (ExpressionNode) new UnaryExpression().Process(parser, parameters);
+            return new MultiplicativeExpressionp().Process(parser
+                , new SortedDictionary<string, object>() {{"LeftNode", _leftNode}});
         }
     }
 }

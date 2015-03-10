@@ -1,0 +1,3 @@
+<FloatNode>
+  <Value>987.654</Value>
+</FloatNode>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using scriptea.Lexical;
+using scriptea.Tree.Expression.Literals;
 
 namespace scriptea.Parsing.Literals
 {
@@ -12,7 +13,9 @@ namespace scriptea.Parsing.Literals
         {
             if (parser.CurrenToken.Type == TokenType.LitBool)
             {
+                bool _value = bool.Parse(parser.CurrenToken.LexemeVal);
                 parser.NextToken();
+                return new BooleanNode {Value = _value};
             }
             else
             {
@@ -20,7 +23,6 @@ namespace scriptea.Parsing.Literals
                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
                    + ", Column: " + parser.CurrenToken.Column);
             }
-            return null;
         }
     }
 }

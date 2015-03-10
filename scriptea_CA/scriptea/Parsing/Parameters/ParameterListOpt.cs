@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Parsing.Parameters
 {
@@ -9,13 +10,12 @@ namespace scriptea.Parsing.Parameters
         {
             if (parser.CurrenToken.Type == TokenType.Id)
             {
-                new ParameterList().Process(parser, parameters);
+                return new ParameterList().Process(parser, parameters);
             }
             else
             {
-               //Epsilon
+                return new List<IdNode>();
             }
-            return null;
         }
     }
 }

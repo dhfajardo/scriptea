@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Expression.Operators.ShiftOperators;
 
 namespace scriptea.Parsing.Operators
 {
@@ -10,14 +11,17 @@ namespace scriptea.Parsing.Operators
             if (parser.CurrenToken.Type == TokenType.OpLeftShift)
             {
                 parser.NextToken();
+                return new LeftShiftOperatorNode();
             }
             else if (parser.CurrenToken.Type == TokenType.OpRightShift)
             {
                 parser.NextToken();
+                return new RightShiftOperatorNode();
             }
             else if (parser.CurrenToken.Type == TokenType.OpRightShiftZeroFill)
             {
                 parser.NextToken();
+                return new RightShiftZeroFillOperatorNode();
             }
             else
             {

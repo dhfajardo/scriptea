@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using scriptea.Lexical;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Parsing.Parameters
 {
@@ -12,8 +14,13 @@ namespace scriptea.Parsing.Parameters
                 parser.NextToken();
                 if (parser.CurrenToken.Type == TokenType.Id)
                 {
+                    string _idName = parser.CurrenToken.LexemeVal;
+                    var _singleId = new IdNode{Name = _idName};
+                    List<IdNode> _idList;
                     parser.NextToken();
-                    this.Process(parser, parameters);
+                    _idList =(List<IdNode>) this.Process(parser, parameters);
+                    _idList.Insert(0,_singleId);
+                    return _idList;
                 }
                 else
                 {
@@ -24,9 +31,8 @@ namespace scriptea.Parsing.Parameters
             }
             else
             {
-                //Epsilon
+                return new List<IdNode>();
             }
-            return null;
         }
     }
 }

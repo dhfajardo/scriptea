@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Expression.Operators.MultiplicativeOperators;
 
 namespace scriptea.Parsing.Operators
 {
@@ -10,14 +11,17 @@ namespace scriptea.Parsing.Operators
             if (parser.CurrenToken.Type == TokenType.OpMul)
             {
                 parser.NextToken();
+                return new MulOperatorNode();
             }
             else if (parser.CurrenToken.Type == TokenType.OpDiv)
             {
                 parser.NextToken();
+                return new DivOperatorNode();
             }
             else if (parser.CurrenToken.Type == TokenType.OpMod)
             {
                 parser.NextToken();
+                return new ModOperatorNode();
             }
             else
             {

@@ -1,0 +1,9 @@
+<AssigStatementNode>
+  <AssignmentExpressionNode>
+    <NegativeOperatorNode>
+      <ValueNode>
+        <Name>id</Name>
+      </ValueNode>
+    </NegativeOperatorNode>
+  </AssignmentExpressionNode>
+</AssigStatementNode>

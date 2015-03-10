@@ -1,0 +1,18 @@
+<ReturnNode>
+  <ReturnExpressionNode>
+    <FunctionNode>
+      <Name>suma</Name>
+      <Accesor>
+        <Name></Name>
+        <ParameterList>
+          <IntegerNode>
+            <Value>1</Value>
+          </IntegerNode>
+          <IntegerNode>
+            <Value>false</Value>
+          </IntegerNode>
+        </ParameterList>
+      </Accesor>
+    </FunctionNode>
+  </ReturnExpressionNode>
+</ReturnNode>

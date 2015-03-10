@@ -10,6 +10,8 @@ C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\obj\Debug\scr
 C:\Users\hnfajardoa\Documents\GitHub\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.csprojResolveAssemblyReference.cache
 C:\scriptea\scriptea_CA\scriptea\bin\Debug\scriptea.dll
 C:\scriptea\scriptea_CA\scriptea\bin\Debug\scriptea.pdb
-C:\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.csprojResolveAssemblyReference.cache
 C:\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.dll
 C:\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.pdb
+C:\scriptea\scriptea_CA\scriptea\bin\Debug\Newtonsoft.Json.dll
+C:\scriptea\scriptea_CA\scriptea\bin\Debug\Newtonsoft.Json.xml
+C:\scriptea\scriptea_CA\scriptea\obj\Debug\scriptea.csprojResolveAssemblyReference.cache

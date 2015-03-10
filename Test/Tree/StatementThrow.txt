@@ -1,0 +1,5 @@
+<ThrowNode>
+  <ThrowStatementNode>
+    <Name>id</Name>
+  </ThrowStatementNode>
+</ThrowNode>

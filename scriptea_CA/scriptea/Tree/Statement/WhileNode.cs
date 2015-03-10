@@ -9,6 +9,6 @@ namespace scriptea.Tree.Statement
     public class WhileNode:StatementNode
     {
         public ExpressionNode EvaluationNode { get; set; }
-        public StatementNode CodeNode { get; set; }
+        public List<StatementNode> CodeNode { get; set; }
     }
 }

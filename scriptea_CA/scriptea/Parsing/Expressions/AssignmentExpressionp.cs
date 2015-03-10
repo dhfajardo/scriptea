@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Parsing.Operators;
+using scriptea.Tree.Expression;
+using scriptea.Tree.Expression.Operators;
 
 namespace scriptea.Parsing.Expressions
 {
@@ -8,6 +10,7 @@ namespace scriptea.Parsing.Expressions
     {
         public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
+            var _leftNode = (ExpressionNode) parameters["LeftNode"];
             if (parser.CurrenToken.Type == TokenType.OpAssig
                 || parser.CurrenToken.Type == TokenType.OpAssigMul
                 || parser.CurrenToken.Type == TokenType.OpAssigDiv
@@ -21,15 +24,17 @@ namespace scriptea.Parsing.Expressions
                 || parser.CurrenToken.Type == TokenType.OpAssigBitwiseOr
                 || parser.CurrenToken.Type == TokenType.OpAssigBitwiseXOr)
             {
-                new AssignmentOperator().Process(parser, parameters);
-                new ConditionalExpression().Process(parser, parameters);
-                this.Process(parser, parameters);
+                var _assigOp = (BaseAssigOperatorNode) new AssignmentOperator().Process(parser, parameters);
+                var _rightNode = (ExpressionNode) new ConditionalExpression().Process(parser, parameters);
+                _assigOp.LeftNode = _leftNode;
+                _assigOp.RightNode = _rightNode;
+                return this.Process(parser
+                    , new SortedDictionary<string, object>(){{"LeftNode",_assigOp}} );
             }
             else
             {
-                //Epsilon
+                return _leftNode;
             }
-            return null;
         }
     }
 }

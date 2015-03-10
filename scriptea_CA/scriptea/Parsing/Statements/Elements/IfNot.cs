@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing.Statements.Elements
 {
@@ -10,13 +11,13 @@ namespace scriptea.Parsing.Statements.Elements
             if (parser.CurrenToken.Type == TokenType.KwElse)
             {
                 parser.NextToken();
-                new Statementp().Process(parser, parameters);
+                var _elseCode = (List<StatementNode>) new Statementp().Process(parser, parameters);
+                return new ElseNode {CodeNode = _elseCode};
             }
             else
             {
-                //Epsilon
+                return new ElseNode();
             }
-            return null;
         }
     }
 }

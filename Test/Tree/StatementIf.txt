@@ -1,0 +1,35 @@
+<IfNode>
+  <EvaluationNode>
+    <LeftNode>
+      <Name>id</Name>
+    </LeftNode>
+    <RightNode>
+      <Name>id2</Name>
+    </RightNode>
+  </EvaluationNode>
+  <IfCode>
+    <IfNode>
+      <EvaluationNode>
+        <LeftNode>
+          <Name>id3</Name>
+        </LeftNode>
+        <RightNode>
+          <Name>id4</Name>
+        </RightNode>
+      </EvaluationNode>
+      <IfCode>
+        <AssigStatementNode>
+          <AssignmentExpressionNode>
+            <IncPosOperatorNode>
+              <ValueNode>
+                <Name>count</Name>
+              </ValueNode>
+            </IncPosOperatorNode>
+          </AssignmentExpressionNode>
+        </AssigStatementNode>
+      </IfCode>
+      <IfNotCode />
+    </IfNode>
+  </IfCode>
+  <IfNotCode />
+</IfNode>

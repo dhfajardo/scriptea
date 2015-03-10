@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Parsing.Expressions
 {
@@ -22,13 +23,12 @@ namespace scriptea.Parsing.Expressions
                 || parser.CurrenToken.Type == TokenType.OpDec
                 || parser.CurrenToken.Type == TokenType.KwNew)
             {
-                new Expression().Process(parser, parameters);
+                return new Expression().Process(parser, parameters);
             }
             else
             {
-                //Epsilon
+                return new List<ExpressionNode>();
             }
-            return null;
         }
     }
 }

@@ -1,0 +1,9 @@
+<AssigStatementNode>
+  <AssignmentExpressionNode>
+    <NotBitOperatorNode>
+      <ValueNode>
+        <Name>id</Name>
+      </ValueNode>
+    </NotBitOperatorNode>
+  </AssignmentExpressionNode>
+</AssigStatementNode>

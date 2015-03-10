@@ -1,0 +1,12 @@
+<AssigStatementNode>
+  <AssignmentExpressionNode>
+    <AssigBitwiseOrOperatorNode>
+      <LeftNode>
+        <Name>id1</Name>
+      </LeftNode>
+      <RightNode>
+        <Name>id2</Name>
+      </RightNode>
+    </AssigBitwiseOrOperatorNode>
+  </AssignmentExpressionNode>
+</AssigStatementNode>

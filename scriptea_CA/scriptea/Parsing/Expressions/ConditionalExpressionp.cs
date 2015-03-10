@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Expression;
+using scriptea.Tree.Expression.Operators;
 
 namespace scriptea.Parsing.Expressions
 {
@@ -7,14 +9,22 @@ namespace scriptea.Parsing.Expressions
     {
         public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
+            var _leftNode = (ExpressionNode) parameters["LeftNode"];
             if (parser.CurrenToken.Type == TokenType.OpTernary)
             {
                 parser.NextToken();
-                new AssignmentExpression().Process(parser, parameters);
+                var _trueEp = (ExpressionNode) new AssignmentExpression().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmColon)
                 {
                     parser.NextToken();
-                    new AssignmentExpression().Process(parser, parameters);
+                    var _falseEp = (ExpressionNode) new AssignmentExpression().Process(parser, parameters);
+                    var _result = new TernaryNode
+                    {
+                        EvaluationExpression = _leftNode,
+                        TrueExpression = _trueEp,
+                        FalseExpression = _falseEp
+                    };
+                    return _result;
                 }
                 else
                 {
@@ -25,9 +35,8 @@ namespace scriptea.Parsing.Expressions
             }
             else
             {
-                //Epsilon
+                return _leftNode;
             }
-            return null;
         }
     }
 }

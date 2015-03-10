@@ -20,6 +20,6 @@ namespace scriptea.Tree.Expression
 
     public class IndexAcessor : Accesor
     {
-        public List<ExpressionNode> IndexList { get; set; } 
+        public ExpressionNode IndexList { get; set; } 
     }
 }

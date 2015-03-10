@@ -1,0 +1,12 @@
+<AssigStatementNode>
+  <AssignmentExpressionNode>
+    <GreaterThanOperatorNode>
+      <LeftNode>
+        <Name>id1</Name>
+      </LeftNode>
+      <RightNode>
+        <Name>id2</Name>
+      </RightNode>
+    </GreaterThanOperatorNode>
+  </AssignmentExpressionNode>
+</AssigStatementNode>

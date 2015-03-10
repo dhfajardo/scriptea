@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Parsing.Expressions
 {
@@ -6,9 +7,9 @@ namespace scriptea.Parsing.Expressions
     {
         public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
-            new AdditiveExpression().Process(parser, parameters);
-            new ShiftExpressionp().Process(parser, parameters);
-            return null;
+            var _leftNode = (ExpressionNode) new AdditiveExpression().Process(parser, parameters);
+            return new ShiftExpressionp().Process(parser
+                , new SortedDictionary<string, object>() {{"LeftNode", _leftNode}});
         }
     }
 }

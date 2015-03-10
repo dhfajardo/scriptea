@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Parsing.Expressions;
+using scriptea.Tree.Others;
 
 namespace scriptea.Parsing.Statements.Clause
 {
@@ -10,14 +11,15 @@ namespace scriptea.Parsing.Statements.Clause
         {
             if (parser.CurrenToken.Type == TokenType.KwCase)
             {
-                new CaseClause().Process(parser, parameters);
-                this.Process(parser, parameters);
+                var _caseList = (CaseNode) new CaseClause().Process(parser, parameters);
+                //var _case = (CaseNode)this.Process(parser, parameters);
+                _caseList.NextCase = (CaseNode) this.Process(parser, parameters);
+                return _caseList;
             }
             else
             {
-                //Epsilon   
+                return new CaseNode();
             }
-            return null;
         }
     }
 }

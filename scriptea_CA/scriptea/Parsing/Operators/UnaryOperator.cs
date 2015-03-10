@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using scriptea.Lexical;
+using scriptea.Tree.Expression.Operators.UnaryOperators;
 
 namespace scriptea.Parsing.Operators
 {
@@ -13,14 +14,17 @@ namespace scriptea.Parsing.Operators
             if (parser.CurrenToken.Type == TokenType.OpNotBit)
             {
                 parser.NextToken();
+                return new NotBitOperatorNode();
             }
             else if (parser.CurrenToken.Type == TokenType.OpNot)
             {
                 parser.NextToken();
+                return new NotOperatorNode();
             }
             else if (parser.CurrenToken.Type == TokenType.OpSub)
             {
                 parser.NextToken();
+                return new NegativeOperatorNode();
             }
             else
             {

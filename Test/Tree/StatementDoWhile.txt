@@ -1,0 +1,35 @@
+<DoWhileNode>
+  <CodeNode>
+    <AssigStatementNode>
+      <AssignmentExpressionNode>
+        <IncPosOperatorNode>
+          <ValueNode>
+            <Name>count</Name>
+          </ValueNode>
+        </IncPosOperatorNode>
+      </AssignmentExpressionNode>
+    </AssigStatementNode>
+    <AssigStatementNode>
+      <EvaluationNode>
+        <ValueNode>
+          <Value>false</Value>
+        </ValueNode>
+      </EvaluationNode>
+      <IfCode>
+        <AssigStatementNode>
+          <AssignmentExpressionNode>
+            <IncPreOperatorNode>
+              <ValueNode>
+                <Name>count</Name>
+              </ValueNode>
+            </IncPreOperatorNode>
+          </AssignmentExpressionNode>
+        </AssigStatementNode>
+      </IfCode>
+      <IfNotCode />
+    </AssigStatementNode>
+  </CodeNode>
+  <EvaluationNode>
+    <Value>true</Value>
+  </EvaluationNode>
+</DoWhileNode>

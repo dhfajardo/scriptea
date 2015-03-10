@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Parsing.Expressions;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Parsing.Variables
 {
@@ -11,14 +12,16 @@ namespace scriptea.Parsing.Variables
             if (parser.CurrenToken.Type == TokenType.PmComma)
             {
                 parser.NextToken();
-                new Variable().Process(parser, parameters);
-                this.Process(parser, parameters);
+                var _single = (ExpressionNode) new Variable().Process(parser, parameters);
+                List<ExpressionNode> _listEp;
+                _listEp = (List<ExpressionNode>) this.Process(parser, parameters);
+                _listEp.Insert(0,_single);
+                return _listEp;
             }
             else
             {
-                //Epsilon
+                return new List<ExpressionNode>();
             }
-            return null;
         }
     }
 }

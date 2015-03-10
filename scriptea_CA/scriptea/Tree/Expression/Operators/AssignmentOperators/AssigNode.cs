@@ -5,8 +5,8 @@ using System.Text;
 
 namespace scriptea.Tree.Expression.Operators.AssignmentOperators
 {
-    public class AssignmentOperatorNode:BaseAssigOperatorNode
+    public class AssigNode:BinaryOperatorNode
     {
-
+       
     }
 }

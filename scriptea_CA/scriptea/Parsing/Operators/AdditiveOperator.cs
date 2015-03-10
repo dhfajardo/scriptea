@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Expression.Operators.AdditiveOperators;
 
 namespace scriptea.Parsing.Operators
 {
@@ -10,10 +11,12 @@ namespace scriptea.Parsing.Operators
             if (parser.CurrenToken.Type == TokenType.OpSum)
             {
                 parser.NextToken();
+                return new SumOperatorNode();
             }
             else if (parser.CurrenToken.Type == TokenType.OpSub)
             {
                 parser.NextToken();
+                return new SubOperatorNode();
             }
             else
             {
@@ -21,7 +24,6 @@ namespace scriptea.Parsing.Operators
                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
                    + ", Column: " + parser.CurrenToken.Column);
             }
-            return null;
         }
     }
 }

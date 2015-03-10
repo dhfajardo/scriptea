@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Others;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing.Statements.Blocks
 {
@@ -10,13 +12,13 @@ namespace scriptea.Parsing.Statements.Blocks
             if (parser.CurrenToken.Type == TokenType.KwFinally)
             {
                 parser.NextToken();
-                new CompoundStatement().Process(parser, parameters);
+                var _finallyCode = (List<StatementNode>) new CompoundStatement().Process(parser, parameters);
+                return new FinallyNode {FinallyCode = _finallyCode};
             }
             else
             {
-                //Epsilon
+                return new FinallyNode();
             }
-            return null;
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using scriptea.Tree.Expression;
+﻿using System.Collections.Generic;
+using scriptea.Tree.Expression;
 
 namespace scriptea.Tree.Statement
 {
     public class ReturnNode:StatementNode
     {
-        public ExpressionNode ExpressionOptNode { get; set; }
+        public List<ExpressionNode> ReturnExpressionNode { get; set; }
     }
 }

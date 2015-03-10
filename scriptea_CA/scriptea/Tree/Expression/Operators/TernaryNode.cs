@@ -5,7 +5,7 @@ using System.Text;
 
 namespace scriptea.Tree.Expression.Operators
 {
-    public class TernaryNode
+    public class TernaryNode:ExpressionNode
     {
         public ExpressionNode EvaluationExpression { get; set; }
         public ExpressionNode TrueExpression { get; set; }

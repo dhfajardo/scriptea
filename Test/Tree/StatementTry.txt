@@ -1,0 +1,17 @@
+<TryNode>
+  <TryCode>
+    <AssigStatementNode>
+      <AssignmentExpressionNode>
+        <AssigOperatorNode>
+          <LeftNode>
+            <Name>id</Name>
+          </LeftNode>
+          <RightNode>
+            <Name>id2</Name>
+          </RightNode>
+        </AssigOperatorNode>
+      </AssignmentExpressionNode>
+    </AssigStatementNode>
+  </TryCode>
+  <FinallyCode />
+</TryNode>

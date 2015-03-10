@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using scriptea.Lexical;
 using scriptea.Parsing.Expressions;
+using scriptea.Tree.Expression;
+using scriptea.Tree.Others;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing.Statements.Clause
 {
@@ -14,11 +17,14 @@ namespace scriptea.Parsing.Statements.Clause
             if (parser.CurrenToken.Type == TokenType.KwCase)
             {
                 parser.NextToken();
-                new AssignmentExpression().Process(parser, parameters);
+                var _evaluation = (ExpressionNode) new AssignmentExpression().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmColon)
                 {
                     parser.NextToken();
-                    new StatementList().Process(parser, parameters);
+                    var _case = new CaseNode {EvaluationNode = _evaluation};
+                    var _caseCode = (List<StatementNode>) new StatementList().Process(parser, parameters);
+                    _case.CodeNode = _caseCode;
+                    return _case;
                 }
                 else
                 {
@@ -33,7 +39,6 @@ namespace scriptea.Parsing.Statements.Clause
                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
                    + ", Column: " + parser.CurrenToken.Column);
             }
-            return null;
         }
     }
 }

@@ -1,0 +1,47 @@
+<SwitchNode>
+  <EvaluationNode>
+    <Name>id</Name>
+  </EvaluationNode>
+  <CaseBlockNode>
+    <EvaluationNode>
+      <Value>1</Value>
+    </EvaluationNode>
+    <CodeNode>
+      <AssigStatementNode>
+        <AssignmentExpressionNode>
+          <IncPosOperatorNode>
+            <ValueNode>
+              <Name>count</Name>
+            </ValueNode>
+          </IncPosOperatorNode>
+        </AssignmentExpressionNode>
+      </AssigStatementNode>
+      <AssigStatementNode />
+    </CodeNode>
+    <NextCase>
+      <EvaluationNode>
+        <Value>2</Value>
+      </EvaluationNode>
+      <CodeNode>
+        <IfNode>
+          <EvaluationNode>
+            <Value>true</Value>
+          </EvaluationNode>
+          <IfCode>
+            <AssigStatementNode>
+              <AssignmentExpressionNode>
+                <DecPosOperatorNode>
+                  <ValueNode>
+                    <Name>count</Name>
+                  </ValueNode>
+                </DecPosOperatorNode>
+              </AssignmentExpressionNode>
+            </AssigStatementNode>
+          </IfCode>
+          <IfNotCode />
+        </IfNode>
+      </CodeNode>
+      <NextCase />
+    </NextCase>
+  </CaseBlockNode>
+</SwitchNode>

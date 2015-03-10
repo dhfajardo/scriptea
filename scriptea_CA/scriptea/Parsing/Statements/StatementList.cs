@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing.Statements
 {
@@ -34,14 +35,16 @@ namespace scriptea.Parsing.Statements
                 || parser.CurrenToken.Type == TokenType.OpDec
                 || parser.CurrenToken.Type == TokenType.KwNew)
             {
-                new Statement().Process(parser, parameters);
-                this.Process(parser, parameters);
+                List<StatementNode> _listStatemen;
+                var _singleStatment = (StatementNode) new Statement().Process(parser, parameters);
+                _listStatemen = (List<StatementNode>)this.Process(parser, parameters);
+                _listStatemen.Insert(0, _singleStatment);
+                return _listStatemen;
             }
             else
             {
-                //Epsilon
+                return new List<StatementNode>();
             }
-            return null;
         }
     }
 }

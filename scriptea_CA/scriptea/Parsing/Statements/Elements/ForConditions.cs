@@ -2,6 +2,8 @@
 using scriptea.Lexical;
 using scriptea.Parsing.Expressions;
 using scriptea.Parsing.Variables;
+using scriptea.Tree.Expression;
+using scriptea.Tree.Statement;
 
 namespace scriptea.Parsing.Statements.Elements
 {
@@ -12,15 +14,21 @@ namespace scriptea.Parsing.Statements.Elements
             if (parser.CurrenToken.Type == TokenType.KwVar)
             {
                 parser.NextToken();
-                new VariableList().Process(parser, parameters);
+                var _startEp = (List<ExpressionNode>) new VariableList().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                 {
                     parser.NextToken();
-                    new ExpressionOpt().Process(parser, parameters);
+                    var _evaluation = (List<ExpressionNode>) new ExpressionOpt().Process(parser, parameters);
                     if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                     {
                         parser.NextToken();
-                        new ExpressionOpt().Process(parser, parameters);
+                        var _endEp = (List<ExpressionNode>) new ExpressionOpt().Process(parser, parameters);
+                        return new ForNode
+                        {
+                            StartExpressionNodes = _startEp,
+                            EvaluationNodes = _evaluation,
+                            EndExpressionNodes = _endEp
+                        };
                     }
                     else
                     {
@@ -38,15 +46,21 @@ namespace scriptea.Parsing.Statements.Elements
             }
             else
             {
-                new ExpressionOpt().Process(parser, parameters);
+                var _startEp = (List<ExpressionNode>) new ExpressionOpt().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                 {
                     parser.NextToken();
-                    new ExpressionOpt().Process(parser, parameters);
+                    var _evaluation = (List<ExpressionNode>) new ExpressionOpt().Process(parser, parameters);
                     if (parser.CurrenToken.Type == TokenType.PmSemicolon)
                     {
                         parser.NextToken();
-                        new ExpressionOpt().Process(parser, parameters);
+                        var _endEp = (List<ExpressionNode>) new ExpressionOpt().Process(parser, parameters);
+                        return new ForNode
+                        {
+                            StartExpressionNodes = _startEp,
+                            EvaluationNodes = _evaluation,
+                            EndExpressionNodes = _endEp
+                        };
                     }
                     else
                     {
@@ -62,7 +76,6 @@ namespace scriptea.Parsing.Statements.Elements
                    + ", Column: " + parser.CurrenToken.Column);
                 }
             }
-            return null;
         }
     }
 }

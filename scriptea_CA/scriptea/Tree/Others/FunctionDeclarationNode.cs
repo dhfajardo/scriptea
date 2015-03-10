@@ -4,10 +4,10 @@ using scriptea.Tree.Statement;
 
 namespace scriptea.Tree.Others
 {
-    public class FunctionDeclarationNode:ExpressionNode
+    public class FunctionDeclarationNode:StatementNode
     {
-        public string ID { get; set; }
-        public List<ExpressionNode> ParametersNodes { get; set; }
-        public StatementNode CodeNode { get; set; }
+        public IdNode Id { get; set; }
+        public List<IdNode> ParameterList { get; set; }
+        public List<StatementNode> Statements { get; set; }
     }
 }
