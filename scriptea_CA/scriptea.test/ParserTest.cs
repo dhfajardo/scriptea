@@ -125,14 +125,6 @@ namespace scriptea.test
         /*CONSTRUCTOR*/
         [TestMethod]
         //[ExpectedException(typeof(ParserException))]
-        public void TestConstCallP()
-        {
-            var parser = new Parser(new Lexer(new InputStream(".id.id(s1, s2)")));
-            parser.StartINTerminal = new ConstructorCallp();
-            parser.Parse();
-        }
-        [TestMethod]
-        //[ExpectedException(typeof(ParserException))]
         public void TestConstCall()
         {
             ArrayList list = new ArrayList

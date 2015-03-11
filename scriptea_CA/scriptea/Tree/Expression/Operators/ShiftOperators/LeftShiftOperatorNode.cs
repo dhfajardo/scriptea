@@ -2,6 +2,9 @@
 {
     public class LeftShiftOperatorNode:BinaryOperatorNode
     {
-       
+        public override dynamic Evaluate()
+        {
+            return LeftNode.Evaluate() << RightNode.Evaluate();
+        }
     }
 }

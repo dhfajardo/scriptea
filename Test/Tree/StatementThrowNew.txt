@@ -1,18 +1,13 @@
 <ThrowNode>
   <ThrowStatementNode>
-    <ConstructorNode>
-      <Name>suma</Name>
-      <Accesor>
-        <Name>id</Name>
-        <ParameterList>
-          <IntegerNode>
-            <Value>1</Value>
-          </IntegerNode>
-          <IntegerNode>
-            <Value>true</Value>
-          </IntegerNode>
-        </ParameterList>
-      </Accesor>
-    </ConstructorNode>
+    <TypeName>suma.id</TypeName>
+    <Parameters>
+      <IntegerNode>
+        <Value>1</Value>
+      </IntegerNode>
+      <IntegerNode>
+        <Value>true</Value>
+      </IntegerNode>
+    </Parameters>
   </ThrowStatementNode>
 </ThrowNode>

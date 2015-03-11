@@ -10,5 +10,9 @@ namespace scriptea.Tree.Expression.Operators
         public ExpressionNode EvaluationExpression { get; set; }
         public ExpressionNode TrueExpression { get; set; }
         public ExpressionNode FalseExpression { get; set; }
+        public override dynamic Evaluate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

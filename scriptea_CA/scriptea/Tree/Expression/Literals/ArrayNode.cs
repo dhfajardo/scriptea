@@ -5,5 +5,9 @@ namespace scriptea.Tree.Expression.Literals
     public class ArrayNode:ExpressionNode
     {
         public List<ExpressionNode> ElementsArray { get; set; }
+        public override dynamic Evaluate()
+        {
+            return ElementsArray;
+        }
     }
 }

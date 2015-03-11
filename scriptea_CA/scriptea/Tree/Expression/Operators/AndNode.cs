@@ -7,5 +7,9 @@ namespace scriptea.Tree.Expression.Operators
 {
     public class AndNode:BinaryOperatorNode
     {
+        public override dynamic Evaluate()
+        {
+            return LeftNode.Evaluate() && RightNode.Evaluate();
+        }
     }
 }

@@ -2,6 +2,7 @@
 using scriptea.Lexical;
 using scriptea.Parsing.Expressions.Constructor;
 using scriptea.Tree.Expression;
+using scriptea.Tree.Expression.Operators;
 
 namespace scriptea.Parsing.Statements
 {
@@ -19,9 +20,7 @@ namespace scriptea.Parsing.Statements
             else if (parser.CurrenToken.Type == TokenType.KwNew)
             {
                 parser.NextToken();
-                var _newConstructor = (ExpressionNode)new ConstructorCall().Process(parser, parameters);
-                var _new = new NewNode {ConstructorNode = _newConstructor};
-                return _new;
+                return new ConstructorCall().Process(parser, parameters);
             }
             else
             {

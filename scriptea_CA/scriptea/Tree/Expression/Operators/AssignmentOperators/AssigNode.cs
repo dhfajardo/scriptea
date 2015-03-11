@@ -7,6 +7,9 @@ namespace scriptea.Tree.Expression.Operators.AssignmentOperators
 {
     public class AssigNode:BinaryOperatorNode
     {
-       
+        public override dynamic Evaluate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

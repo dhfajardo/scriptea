@@ -9,5 +9,9 @@ namespace scriptea.Tree.Expression
     {
         public string Name { get; set; }
         public Accesor Accesor { get; set; }
+        public override dynamic Evaluate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

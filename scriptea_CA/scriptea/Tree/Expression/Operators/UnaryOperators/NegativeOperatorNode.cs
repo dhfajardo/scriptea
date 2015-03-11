@@ -2,6 +2,9 @@
 {
     public class NegativeOperatorNode:BaseUnaryOperatorNode
     {
-
+        public override dynamic Evaluate()
+        {
+            return ValueNode.Evaluate()*-1;
+        }
     }
 }

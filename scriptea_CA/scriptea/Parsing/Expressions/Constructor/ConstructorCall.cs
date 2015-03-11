@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using scriptea.Lexical;
 using scriptea.Tree.Expression;
+using scriptea.Tree.Expression.Operators;
 
 namespace scriptea.Parsing.Expressions.Constructor
 {
@@ -12,10 +13,9 @@ namespace scriptea.Parsing.Expressions.Constructor
             {
                 string _idName = parser.CurrenToken.LexemeVal;
                 parser.NextToken();
-                var _idNode = new IdNode {Name = _idName};
-                var _accesor = (Accesor) new ConstructorCallp().Process(parser, parameters);
-                _idNode.Accesor = _accesor;
-                return _idNode;
+                var _newNode = (NewNode) new ConstructorCallp().Process(parser
+                    , new SortedDictionary<string, object>() {{"TypeName", _idName}});
+                return _newNode;
             }
             else
             {

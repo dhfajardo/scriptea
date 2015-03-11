@@ -452,5 +452,22 @@ namespace scriptea.test
             var _input = System.IO.File.ReadAllText(@"C:\scriptea\Test\Tree\StatementNegative.txt");
             Assert.AreEqual(_input, _resultSerial);
         }
+
+        [TestMethod]
+        public void TreeStatementSuma()
+        {
+            var parser = new Parser(new Lexer(new InputStream("2+\"hola\"")));
+            parser.StartINTerminal = new AssignmentExpression();
+            var _result = (ExpressionNode)parser.Parse();
+            Assert.AreEqual("2hola", _result.Evaluate());
+        }
+
+        [TestMethod]
+        public void TreeStatementNew()
+        {
+            var parser = new Parser(new Lexer(new InputStream("a = new system.io.suma(1,2)")));
+            parser.StartINTerminal = new Expression();
+            var _result = parser.Parse();
+        }
     }
 }

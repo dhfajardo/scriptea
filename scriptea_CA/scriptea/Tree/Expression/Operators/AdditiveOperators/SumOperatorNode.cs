@@ -2,6 +2,9 @@
 {
     public class SumOperatorNode:BinaryOperatorNode
     {
-       
+        public override dynamic Evaluate()
+        {
+            return LeftNode.Evaluate() + RightNode.Evaluate();
+        }
     }
 }

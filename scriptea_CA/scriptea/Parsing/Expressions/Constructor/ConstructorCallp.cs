@@ -2,6 +2,7 @@
 using scriptea.Lexical;
 using scriptea.Parsing.Others;
 using scriptea.Tree.Expression;
+using scriptea.Tree.Expression.Operators;
 
 namespace scriptea.Parsing.Expressions.Constructor
 {
@@ -9,16 +10,15 @@ namespace scriptea.Parsing.Expressions.Constructor
     {
         public object Process(Parser parser, SortedDictionary<string, object> parameters)
         {
+            string _typeName = (string) parameters["TypeName"];
             if (parser.CurrenToken.Type == TokenType.PmLeftParent)
             {
                 parser.NextToken();
-                var _function = new FunctionAccesor();
-                var _funcParameters = (List<ExpressionNode>)new ExpressionOpt().Process(parser, parameters);
+                var _parameters = (List<ExpressionNode>)new ExpressionOpt().Process(parser, parameters);
                 if (parser.CurrenToken.Type == TokenType.PmRightParent)
                 {
                     parser.NextToken();
-                    _function.ParameterList = _funcParameters;
-                    return _function;
+                    return new NewNode {Parameters = _parameters, TypeName = _typeName};
                 }
                 else
                 {
@@ -32,21 +32,10 @@ namespace scriptea.Parsing.Expressions.Constructor
                 parser.NextToken();
                 if (parser.CurrenToken.Type == TokenType.Id)
                 {
-                    string _idName = parser.CurrenToken.LexemeVal;
+                    string _idName = _typeName + "." + parser.CurrenToken.LexemeVal;
                     parser.NextToken();
-                    var _result = (Accesor) this.Process(parser, parameters);
-                    if (_result is FunctionAccesor)
-                    {
-                        var _function = (FunctionAccesor) _result;
-                        _function.Name = _idName;
-                        return _function;
-                    }
-                    else
-                    {
-                        var _field = new FieldAccesor() {Name = _idName};
-                        _field.NextAccesor = _result;
-                        return _field;
-                    }
+                    return this.Process(parser
+                        , new SortedDictionary<string, object>() {{"TypeName", _idName}});
                 }
                 else
                 {

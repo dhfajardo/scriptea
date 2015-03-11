@@ -110,7 +110,7 @@ namespace scriptea.test
         [TestMethod]
         public void TreeStatementSwitchWithDefauld()
         {
-            var parser = new Parser(new Lexer(new InputStream("switch(id){case 1: count++; break; case 2: if(true) count--; default:{ count++; id = count;} case 3: --count;}")));
+            var parser = new Parser(new Lexer(new InputStream("switch(id){case 1: count++; break; case 2: if(true) count--; default: count++; id = count; case 3: --count;}")));
             parser.StartINTerminal = new Statement();
             var _result = (SwitchNode)parser.Parse();
             var _serializer = new RestSharp.Serializers.XmlSerializer();

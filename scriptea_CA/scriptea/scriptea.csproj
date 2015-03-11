@@ -209,7 +209,6 @@
     <Compile Include="Tree\Others\CaseNode.cs" />
     <Compile Include="Tree\Others\CatchNode.cs" />
     <Compile Include="Tree\Others\DefauldNode.cs" />
-    <Compile Include="Tree\Expression\NewNode.cs" />
     <Compile Include="Tree\Others\FinallyNode.cs" />
     <Compile Include="Tree\Statement\ThrowNode.cs" />
     <Compile Include="Tree\Statement\AssigStatementNode.cs" />
@@ -226,6 +225,7 @@
     <Compile Include="Tree\Statement\SwitchNode.cs" />
     <Compile Include="Tree\Statement\TryNode.cs" />
     <Compile Include="Tree\Statement\WhileNode.cs" />
+    <Compile Include="Tree\SymbolTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -15,7 +15,7 @@ namespace scriptea.Parsing.Statements.Clause
                 if (parser.CurrenToken.Type == TokenType.PmColon)
                 {
                     parser.NextToken();
-                    var _defauldCode = (List<StatementNode>) new Statementp().Process(parser, parameters);
+                    var _defauldCode = (List<StatementNode>) new StatementList().Process(parser, parameters);
                     var _defauld = new DefauldNode {CodeNode = _defauldCode};
                     _defauld.NextCase = (CaseNode) new CaseClauseList().Process(parser, parameters);
                     return _defauld;
