@@ -2,16 +2,9 @@
 {
     public class NotEquivOperatorNode:BinaryOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            if (!LeftNode.Equals(RightNode) && LeftNode.Evaluate() != RightNode.Evaluate())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return ((LeftNode.GetType() != RightNode.GetType()) && LeftNode.Evaluate(table) != RightNode.Evaluate(table));
         }
     }
 }

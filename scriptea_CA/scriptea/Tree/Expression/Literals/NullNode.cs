@@ -2,7 +2,7 @@
 {
     public class NullNode:ExpressionNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
             return null;
         }

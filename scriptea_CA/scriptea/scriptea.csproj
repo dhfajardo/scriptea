@@ -205,6 +205,7 @@
     <Compile Include="Tree\Expression\Operators\ShiftOperators\RightShiftZeroFillOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\AdditiveOperators\SubOperatorNode.cs" />
     <Compile Include="Tree\Expression\Operators\AdditiveOperators\SumOperatorNode.cs" />
+    <Compile Include="Tree\InterpreterException.cs" />
     <Compile Include="Tree\Others\BaseCaseNode.cs" />
     <Compile Include="Tree\Others\CaseNode.cs" />
     <Compile Include="Tree\Others\CatchNode.cs" />

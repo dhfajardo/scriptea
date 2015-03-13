@@ -2,9 +2,12 @@
 {
     public class AssigRightZeroFillShiftOperatorNode:BaseAssigOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            return LeftNode.Evaluate() >>  RightNode.Evaluate();
+            var _value = (int)((uint)LeftNode.Evaluate(table) >> RightNode.Evaluate(table));
+            var _leftId = GetLeftValue();
+            table.AddSymbol(_leftId.Name,_value);
+            return _value;
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public abstract class ExpressionNode
     {
-        public abstract dynamic Evaluate();
+        public abstract dynamic Evaluate(SymbolTable table);
     }
 }

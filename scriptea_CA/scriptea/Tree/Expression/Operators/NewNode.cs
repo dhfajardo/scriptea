@@ -9,12 +9,12 @@ namespace scriptea.Tree.Expression.Operators
         public string TypeName { get; set; }
         public List<ExpressionNode> Parameters { get; set; }
 
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
             List<Object> _parameterValue = new List<object>();
             foreach (var parametersNode in Parameters)
             {
-                _parameterValue.Add(parametersNode.Evaluate());
+                _parameterValue.Add(parametersNode.Evaluate(table));
             }
            return Activator.CreateInstance(Type.GetType(TypeName),_parameterValue.ToArray());
         }

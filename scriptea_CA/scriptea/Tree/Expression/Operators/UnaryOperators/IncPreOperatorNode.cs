@@ -2,9 +2,12 @@ namespace scriptea.Tree.Expression.Operators.UnaryOperators
 {
     public class IncPreOperatorNode:BaseUnaryOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            return null;
+            var _id = GetValue();
+            var _value = _id.Evaluate(table);
+            table.AddSymbol(_id.Name, _value + 1);
+            return _value + 1;
         }
     }
 }

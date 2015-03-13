@@ -7,9 +7,12 @@ namespace scriptea.Tree.Expression.Operators.AssignmentOperators
 {
     public class AssigOperatorNode:BaseAssigOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            return RightNode.Evaluate();
+            var _value = RightNode.Evaluate(table);
+            var _idLeft = GetLeftValue();
+            table.AddSymbol(_idLeft.Name,_value);
+            return _value;
         }
     }
 }

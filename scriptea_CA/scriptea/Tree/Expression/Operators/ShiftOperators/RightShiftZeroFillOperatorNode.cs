@@ -2,9 +2,9 @@
 {
     public class RightShiftZeroFillOperatorNode:BinaryOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            return (int)((uint)LeftNode.Evaluate() >> RightNode.Evaluate());
+            return (int)((uint)LeftNode.Evaluate(table) >> RightNode.Evaluate(table));
         }
     }
 }

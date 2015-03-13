@@ -7,9 +7,9 @@ namespace scriptea.Tree.Expression.Operators.UnaryOperators
 {
     public class NotBitOperatorNode:BaseUnaryOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            return ~ValueNode.Evaluate();
+            return ~ValueNode.Evaluate(table);
         }
     }
 }

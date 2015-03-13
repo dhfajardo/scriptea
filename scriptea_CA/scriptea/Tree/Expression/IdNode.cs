@@ -9,7 +9,7 @@ namespace scriptea.Tree.Expression
     {
         public string Name { get; set; }
         public Accesor Accesor { get; set; }
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
             throw new NotImplementedException();
         }

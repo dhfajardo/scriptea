@@ -12,6 +12,7 @@ using scriptea.Lexical.Input;
 using scriptea.Parsing;
 using scriptea.Parsing.Expressions;
 using scriptea.Parsing.Statements;
+using scriptea.Tree;
 using scriptea.Tree.Expression;
 using scriptea.Tree.Statement;
 using JsonSerializer = RestSharp.Serializers.JsonSerializer;
@@ -459,7 +460,7 @@ namespace scriptea.test
             var parser = new Parser(new Lexer(new InputStream("2+\"hola\"")));
             parser.StartINTerminal = new AssignmentExpression();
             var _result = (ExpressionNode)parser.Parse();
-            Assert.AreEqual("2hola", _result.Evaluate());
+            Assert.AreEqual("2hola", _result.Evaluate(new SymbolTable()));
         }
 
         [TestMethod]

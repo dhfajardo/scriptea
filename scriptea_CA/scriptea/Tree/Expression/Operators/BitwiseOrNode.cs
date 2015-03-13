@@ -2,9 +2,9 @@
 {
     public class BitwiseOrNode:BinaryOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            return LeftNode.Evaluate() | RightNode.Evaluate();
+            return LeftNode.Evaluate(table) | RightNode.Evaluate(table);
         }
     }
 }

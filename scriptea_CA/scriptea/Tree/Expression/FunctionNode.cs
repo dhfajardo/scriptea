@@ -10,7 +10,7 @@ namespace scriptea.Tree.Expression
         public Accesor Accesor { get; set; }
         //public List<IdNode> ParameterList { get; set; }
         //public List<StatementNode> Statements { get; set; }
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
             throw new System.NotImplementedException();
         }

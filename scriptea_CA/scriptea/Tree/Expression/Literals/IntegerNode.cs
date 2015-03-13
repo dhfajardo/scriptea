@@ -3,7 +3,7 @@
     public class IntegerNode:ExpressionNode
     {
         public int Value { get; set; }
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
             return Value;
         }

@@ -2,16 +2,9 @@
 {
     public class GreaterEqualThanOperatorNode:BinaryOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            if (LeftNode.Evaluate() >= RightNode.Evaluate())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return LeftNode.Evaluate(table) >= RightNode.Evaluate(table);
         }
     }
 }

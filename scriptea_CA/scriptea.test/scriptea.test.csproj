@@ -60,6 +60,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ExpressionTest.cs" />
+    <Compile Include="InterpreterTesting.cs" />
     <Compile Include="LiteralAndKeyWordTest.cs" />
     <Compile Include="OperatorsTest.cs" />
     <Compile Include="ParserTest.cs" />

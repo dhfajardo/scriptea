@@ -1,17 +1,10 @@
 ﻿namespace scriptea.Tree.Expression.Operators.RelationalOperators
 {
-    public class LessThanOperatorNode:BinaryOperatorNode
+    public class LessThanOperatorNode : BinaryOperatorNode
     {
-        public override dynamic Evaluate()
+        public override dynamic Evaluate(SymbolTable table)
         {
-            if (LeftNode.Evaluate() < RightNode.Evaluate())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return LeftNode.Evaluate(table) < RightNode.Evaluate(table);
         }
     }
 }
