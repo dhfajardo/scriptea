@@ -20,8 +20,6 @@ namespace scriptea.Lexical.States
             }
             else 
             {
-                pLexeme.addSymbol(pInput.CurrentSymbol);
-                pInput.ConsumeSymbol();
                 return new Token
                 {
                     Type = TokenType.OpLeftShift,
@@ -30,10 +28,6 @@ namespace scriptea.Lexical.States
                     Column = pInput.Column
                 };
             }
-            /*else
-            {
-                return new Token { Type = TokenType.OpLessThan, LexemeVal = pLexeme.Value, Row = pInput.Row, Column = pInput.Column };
-            }*/
         }
     }
 }

@@ -128,13 +128,11 @@ namespace scriptea.Lexical.States
             }
             else if (pInput.CurrentSymbol == '\'')
             {
-                //pLexeme.addSymbol(pInput.CurrentSymbol);
                 pInput.ConsumeSymbol();
                 return new StateString1().ProcessState(pInput, pLexeme);
             }
             else if (pInput.CurrentSymbol == '\"')
             {
-                //pLexeme.addSymbol(pInput.CurrentSymbol);
                 pInput.ConsumeSymbol();
                 return new StateString2().ProcessState(pInput, pLexeme);
             }

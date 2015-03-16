@@ -32,7 +32,6 @@ namespace scriptea.Parsing.Operators
                    parser.CurrenToken.LexemeVal + "], Row: " + parser.CurrenToken.Row
                    + ", Column: " + parser.CurrenToken.Column);
             }
-            return null;
         }
     }
 }

@@ -5,7 +5,7 @@
         <Name>id1</Name>
       </LeftNode>
       <RightNode>
-        <Name>d2</Name>
+        <Name>id2</Name>
       </RightNode>
     </LeftShiftOperatorNode>
   </AssignmentExpressionNode>

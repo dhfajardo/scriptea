@@ -4,7 +4,7 @@
     {
         public override dynamic Evaluate(SymbolTable table)
         {
-            return ((LeftNode.GetType() != RightNode.GetType()) && LeftNode.Evaluate(table) != RightNode.Evaluate(table));
+            return (LeftNode.Evaluate(table) != RightNode.Evaluate(table));
         }
     }
 }

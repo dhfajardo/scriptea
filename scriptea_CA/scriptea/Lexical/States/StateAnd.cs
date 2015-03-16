@@ -30,8 +30,6 @@ namespace scriptea.Lexical.States
             }
             else
             {
-                pLexeme.addSymbol(pInput.CurrentSymbol);
-                pInput.ConsumeSymbol();
                 return new Token
                 {
                     Type = TokenType.OpBitwiseAnd,
@@ -39,7 +37,6 @@ namespace scriptea.Lexical.States
                     Row = pInput.Row,
                     Column = pInput.Column
                 };
-                //throw new LexerException("Symbol: " + pInput.CurrentSymbol + " not recognized");
             }
         }
     }
