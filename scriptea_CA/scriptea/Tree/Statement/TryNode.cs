@@ -9,5 +9,9 @@ namespace scriptea.Tree.Statement
         public List<StatementNode> TryCode { get; set; }
         public StatementNode CatchBlockCode { get; set; }
         public StatementNode FinallyCode { get; set; }
+        public override void Interpret(SymbolTable table)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

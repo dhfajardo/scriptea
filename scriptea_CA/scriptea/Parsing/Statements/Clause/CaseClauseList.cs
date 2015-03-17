@@ -13,7 +13,11 @@ namespace scriptea.Parsing.Statements.Clause
             {
                 var _caseList = (CaseNode) new CaseClause().Process(parser, parameters);
                 //var _case = (CaseNode)this.Process(parser, parameters);
-                _caseList.NextCase = (CaseNode) this.Process(parser, parameters);
+                var _nextCase = (CaseNode) this.Process(parser, parameters);
+                if (_nextCase.CodeNode != null)
+                {
+                    _caseList.NextCase = _nextCase;
+                }
                 return _caseList;
             }
             else

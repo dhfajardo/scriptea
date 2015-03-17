@@ -9,5 +9,9 @@ namespace scriptea.Tree.Others
         public IdNode Id { get; set; }
         public List<IdNode> ParameterList { get; set; }
         public List<StatementNode> Statements { get; set; }
+        public override void Interpret(SymbolTable table)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

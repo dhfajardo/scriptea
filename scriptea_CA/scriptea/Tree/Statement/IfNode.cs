@@ -12,5 +12,19 @@ namespace scriptea.Tree.Statement
         public ExpressionNode EvaluationNode { get; set; }
         public List<StatementNode> IfCode { get; set; }
         public ElseNode IfNotCode { get; set; }
+        public override void Interpret(SymbolTable table)
+        {
+            if (EvaluationNode.Evaluate(table))
+            {
+                foreach (var statementNode in IfCode)
+                {
+                    statementNode.Interpret(table);
+                }
+            }
+            else
+            {
+                IfNotCode.Interpret(table);
+            }
+        }
     }
 }

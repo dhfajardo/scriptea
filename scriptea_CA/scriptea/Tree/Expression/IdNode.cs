@@ -11,7 +11,7 @@ namespace scriptea.Tree.Expression
         public Accesor Accesor { get; set; }
         public override dynamic Evaluate(SymbolTable table)
         {
-            throw new NotImplementedException();
+            return table.GetSymbol(Name);
         }
     }
 }

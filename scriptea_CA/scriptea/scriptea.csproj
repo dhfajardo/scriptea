@@ -150,6 +150,8 @@
     <Compile Include="Parsing\Variables\VariablesOrExpression.cs" />
     <Compile Include="Parsing\Variables\VarOpt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tree\BreakException.cs" />
+    <Compile Include="Tree\ContinueException.cs" />
     <Compile Include="Tree\Expression\Accesor.cs" />
     <Compile Include="Tree\Expression\ExpressionNode.cs" />
     <Compile Include="Tree\Expression\FunctionNode.cs" />
@@ -211,6 +213,7 @@
     <Compile Include="Tree\Others\CatchNode.cs" />
     <Compile Include="Tree\Others\DefauldNode.cs" />
     <Compile Include="Tree\Others\FinallyNode.cs" />
+    <Compile Include="Tree\ReturnException.cs" />
     <Compile Include="Tree\Statement\ThrowNode.cs" />
     <Compile Include="Tree\Statement\AssigStatementNode.cs" />
     <Compile Include="Tree\Statement\BreakNode.cs" />

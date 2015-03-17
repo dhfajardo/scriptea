@@ -11,5 +11,41 @@ namespace scriptea.Tree.Statement
 
         public List<StatementNode> CodeNode { get; set; }
 
+        public override void Interpret(SymbolTable table)
+        {
+            foreach (var startExpressionNode in StartExpressionNodes)
+            {
+                startExpressionNode.Evaluate(table);
+            }
+            while (true)
+            {
+                foreach (var evaluationNode in EvaluationNodes)
+                {
+                    if (!evaluationNode.Evaluate(table))
+                    {
+                        return;
+                    }
+                }
+                try
+                {
+                    foreach (var statementNode in CodeNode)
+                    {
+                        statementNode.Interpret(table);
+                    }
+                }
+                catch (BreakException)
+                {
+                    return;
+                }
+                catch (ContinueException)
+                {
+                    
+                }
+                foreach (var endExpressionNode in EndExpressionNodes)
+                {
+                    endExpressionNode.Evaluate(table);
+                }
+            }
+        }
     }
 }

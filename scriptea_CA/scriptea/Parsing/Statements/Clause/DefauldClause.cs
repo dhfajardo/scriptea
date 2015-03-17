@@ -17,7 +17,11 @@ namespace scriptea.Parsing.Statements.Clause
                     parser.NextToken();
                     var _defauldCode = (List<StatementNode>) new StatementList().Process(parser, parameters);
                     var _defauld = new DefauldNode {CodeNode = _defauldCode};
-                    _defauld.NextCase = (CaseNode) new CaseClauseList().Process(parser, parameters);
+                    var _nextCase = (CaseNode) new CaseClauseList().Process(parser, parameters);
+                    if (_nextCase.CodeNode != null)
+                    {
+                        _defauld.NextCase = _nextCase;
+                    }
                     return _defauld;
                 }
                 else

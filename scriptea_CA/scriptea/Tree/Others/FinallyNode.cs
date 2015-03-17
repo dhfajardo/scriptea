@@ -7,5 +7,9 @@ namespace scriptea.Tree.Others
     public class FinallyNode:StatementNode
     {
         public List<StatementNode> FinallyCode { get; set; }
+        public override void Interpret(SymbolTable table)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

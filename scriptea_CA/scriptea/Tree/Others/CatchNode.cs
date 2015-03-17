@@ -8,5 +8,9 @@ namespace scriptea.Tree.Others
     {
         public IdNode Id { get; set; }
         public List<StatementNode> CodeCatch { get; set; }
+        public override void Interpret(SymbolTable table)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

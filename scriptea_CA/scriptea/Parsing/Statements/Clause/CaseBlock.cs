@@ -13,7 +13,6 @@ namespace scriptea.Parsing.Statements.Clause
         {
             var _case = (CaseNode)new CaseClauseList().Process(parser, parameters);
             var _defauld = (BaseCaseNode)new DefauldClause().Process(parser, parameters);
-            //_case.NextCase = _defauld;
             if (_case.CodeNode == null)
             {
                 return _defauld;
@@ -22,7 +21,7 @@ namespace scriptea.Parsing.Statements.Clause
             {
                 if (_defauld.CodeNode != null)
                 {
-                    SetListCase(_case.NextCase, _defauld);
+                    SetListCase(_case, _defauld);
                 }
                 return _case;
             }

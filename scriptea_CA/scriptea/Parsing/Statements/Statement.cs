@@ -18,7 +18,7 @@ namespace scriptea.Parsing.Statements
             if (parser.CurrenToken.Type == TokenType.PmSemicolon)
             {
                 parser.NextToken();
-                return new StatementNode();
+                return null;
             }
             else if (parser.CurrenToken.Type == TokenType.KwIf)
             {

@@ -19,7 +19,7 @@ namespace scriptea.Parsing.Variables
             {
                 parser.NextToken();
                 var _rightNode =(ExpressionNode)new AssignmentExpression().Process(parser, parameters);
-                var _assigNode = new AssigNode {LeftNode = _leftNode, RightNode = _rightNode};
+                var _assigNode = new AssigOperatorNode() {LeftNode = _leftNode, RightNode = _rightNode};
                 return _assigNode;
             }
             else
