@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using scriptea.Tree.Expression;
+using scriptea.Tree.Others;
 
 namespace scriptea.Tree.Statement
 {
@@ -11,7 +12,24 @@ namespace scriptea.Tree.Statement
         public StatementNode FinallyCode { get; set; }
         public override void Interpret(SymbolTable table)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                foreach (var statementNode in TryCode)
+                {
+                    statementNode.Interpret(table);
+                }
+            }
+            catch (System.Exception e)
+            {
+                table.AddSymbol(ExceptionID.Name,e);
+                var _catch = (CatchNode) CatchBlockCode;
+                _catch.Interpret(table);
+            }
+            var _finally = (FinallyNode) FinallyCode;
+            if (_finally.FinallyCode!=null)
+            {
+                _finally.Interpret(table);
+            }
         }
     }
 }

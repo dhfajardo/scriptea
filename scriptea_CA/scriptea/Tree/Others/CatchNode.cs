@@ -10,7 +10,10 @@ namespace scriptea.Tree.Others
         public List<StatementNode> CodeCatch { get; set; }
         public override void Interpret(SymbolTable table)
         {
-            throw new System.NotImplementedException();
+            foreach (var statementNode in CodeCatch)
+            {
+                statementNode.Interpret(table);
+            }
         }
     }
 }

@@ -287,7 +287,7 @@ namespace scriptea.test
                                                                 {
                                                                     case 1: 
                                                                         count++; 
-                                                                        break; 
+                                                                        //break; 
                                                                     default:
                                                                          count = 100;
                                                                          break;
@@ -296,6 +296,52 @@ namespace scriptea.test
                                                                             count--;
                                                                         break;
                                                                     
+                                                                }")));
+            parser.StartINTerminal = new StatementList();
+            var _result = (List<StatementNode>)parser.Parse();
+            foreach (var statementNode in _result)
+            {
+                statementNode.Interpret(_SymbolTable);
+            }
+        }
+
+        [TestMethod]
+        public void InterpreterTry()
+        {
+            SymbolTable _SymbolTable = new SymbolTable();
+            var parser = new Parser(new Lexer(new InputStream(@" var id=0;
+                                                                var msg =''; 
+                                                                try
+                                                                {
+                                                                    id = f;
+                                                                }
+                                                                catch(err)
+                                                                {
+                                                                    msg = err;
+                                                                    id=44;
+                                                                }")));
+            parser.StartINTerminal = new StatementList();
+            var _result = (List<StatementNode>)parser.Parse();
+            foreach (var statementNode in _result)
+            {
+                statementNode.Interpret(_SymbolTable);
+            }
+        }
+        [TestMethod]
+        public void InterpreterTryThrow()
+        {
+            SymbolTable _SymbolTable = new SymbolTable();
+            var parser = new Parser(new Lexer(new InputStream(@" var id=0;
+                                                                var msg =''; 
+                                                                try
+                                                                {
+                                                                    id = 5;
+                                                                    throw new System.Exception('hola');
+                                                                }
+                                                                catch(err)
+                                                                {
+                                                                    msg = 'Entro al catch';
+                                                                    id=44;
                                                                 }")));
             parser.StartINTerminal = new StatementList();
             var _result = (List<StatementNode>)parser.Parse();

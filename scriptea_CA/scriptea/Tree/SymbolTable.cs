@@ -24,7 +24,14 @@ namespace scriptea.Tree
 
         public dynamic GetSymbol(string name)
         {
-            return this._symbolTable[name];
+            if (this._symbolTable.ContainsKey(name))
+            {
+                return this._symbolTable[name];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void DeleteSymbol(string name)

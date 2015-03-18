@@ -1,3 +1,4 @@
+using System;
 using scriptea.Tree.Expression;
 
 namespace scriptea.Tree.Statement
@@ -7,7 +8,7 @@ namespace scriptea.Tree.Statement
         public ExpressionNode ThrowStatementNode { get; set; }
         public override void Interpret(SymbolTable table)
         {
-            throw new System.NotImplementedException();
+            throw (Exception)ThrowStatementNode.Evaluate(table);
         }
     }
 }

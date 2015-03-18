@@ -41,7 +41,6 @@
           <IfNotCode />
         </IfNode>
       </CodeNode>
-      <NextCase />
     </NextCase>
   </CaseBlockNode>
 </SwitchNode>

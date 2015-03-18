@@ -9,7 +9,10 @@ namespace scriptea.Tree.Others
         public List<StatementNode> FinallyCode { get; set; }
         public override void Interpret(SymbolTable table)
         {
-            throw new System.NotImplementedException();
+            foreach (var statementNode in FinallyCode)
+            {
+                statementNode.Interpret(table);
+            } 
         }
     }
 }

@@ -42,47 +42,44 @@
         </IfNode>
       </CodeNode>
       <NextCase>
+        <CodeNode>
+          <AssigStatementNode>
+            <AssignmentExpressionNode>
+              <IncPosOperatorNode>
+                <ValueNode>
+                  <Name>count</Name>
+                </ValueNode>
+              </IncPosOperatorNode>
+            </AssignmentExpressionNode>
+          </AssigStatementNode>
+          <AssigStatementNode>
+            <AssignmentExpressionNode>
+              <AssigOperatorNode>
+                <LeftNode>
+                  <Name>id</Name>
+                </LeftNode>
+                <RightNode>
+                  <Name>count</Name>
+                </RightNode>
+              </AssigOperatorNode>
+            </AssignmentExpressionNode>
+          </AssigStatementNode>
+        </CodeNode>
         <NextCase>
+          <EvaluationNode>
+            <Value>3</Value>
+          </EvaluationNode>
           <CodeNode>
             <AssigStatementNode>
               <AssignmentExpressionNode>
-                <IncPosOperatorNode>
+                <DecPreOperatorNode>
                   <ValueNode>
                     <Name>count</Name>
                   </ValueNode>
-                </IncPosOperatorNode>
-              </AssignmentExpressionNode>
-            </AssigStatementNode>
-            <AssigStatementNode>
-              <AssignmentExpressionNode>
-                <AssigOperatorNode>
-                  <LeftNode>
-                    <Name>id</Name>
-                  </LeftNode>
-                  <RightNode>
-                    <Name>count</Name>
-                  </RightNode>
-                </AssigOperatorNode>
+                </DecPreOperatorNode>
               </AssignmentExpressionNode>
             </AssigStatementNode>
           </CodeNode>
-          <NextCase>
-            <EvaluationNode>
-              <Value>3</Value>
-            </EvaluationNode>
-            <CodeNode>
-              <AssigStatementNode>
-                <AssignmentExpressionNode>
-                  <DecPreOperatorNode>
-                    <ValueNode>
-                      <Name>count</Name>
-                    </ValueNode>
-                  </DecPreOperatorNode>
-                </AssignmentExpressionNode>
-              </AssigStatementNode>
-            </CodeNode>
-            <NextCase />
-          </NextCase>
         </NextCase>
       </NextCase>
     </NextCase>
