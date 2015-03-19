@@ -350,5 +350,76 @@ namespace scriptea.test
                 statementNode.Interpret(_SymbolTable);
             }
         }
+        [TestMethod]
+        public void InterpreterIdAccesor()
+        {
+            SymbolTable _SymbolTable = new SymbolTable();
+            var parser = new Parser(new Lexer(new InputStream(@" var id=0;
+                                                                var msg =''; 
+                                                                var tst = 0;
+                                                                try
+                                                                {
+                                                                    throw new System.Exception('hola');
+                                                                }
+                                                                catch(err)
+                                                                {
+                                                                    msg = err.Message;
+                                                                    tst = id.ToString().Replace('0','hola');
+                                                                    id=44;
+                                                                }")));
+            parser.StartINTerminal = new StatementList();
+            var _result = (List<StatementNode>)parser.Parse();
+            foreach (var statementNode in _result)
+            {
+                statementNode.Interpret(_SymbolTable);
+            }
+        }
+        [TestMethod]
+        public void InterpreterIdAccesor2()
+        {
+            SymbolTable _SymbolTable = new SymbolTable();
+            var parser = new Parser(new Lexer(new InputStream(@" var id=0;
+                                                                var msg =''; 
+                                                                var tst = 0;
+                                                                try
+                                                                {
+                                                                    throw new System.Exception('hola');
+                                                                }
+                                                                catch(err)
+                                                                {
+                                                                    msg = err.Message;
+                                                                    tst = int.Parse('1');
+                                                                    id=44;
+                                                                }")));
+            parser.StartINTerminal = new StatementList();
+            var _result = (List<StatementNode>)parser.Parse();
+            foreach (var statementNode in _result)
+            {
+                statementNode.Interpret(_SymbolTable);
+            }
+        }
+        [TestMethod]
+        public void InterpreterIdAccesorIndex()
+        {
+            SymbolTable _SymbolTable = new SymbolTable();
+            var parser = new Parser(new Lexer(new InputStream(@" var id=0;
+                                                                var msg =''; 
+                                                                var tst = 0;
+                                                                try
+                                                                {
+                                                                    throw new System.Exception('hola');
+                                                                }
+                                                                catch(err)
+                                                                {
+                                                                    msg = err.Message[0].ToString();
+                                                                    id=44;
+                                                                }")));
+            parser.StartINTerminal = new StatementList();
+            var _result = (List<StatementNode>)parser.Parse();
+            foreach (var statementNode in _result)
+            {
+                statementNode.Interpret(_SymbolTable);
+            }
+        }
     }
 }

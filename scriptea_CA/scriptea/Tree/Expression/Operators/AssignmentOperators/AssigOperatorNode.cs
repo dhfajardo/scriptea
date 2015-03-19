@@ -11,7 +11,8 @@ namespace scriptea.Tree.Expression.Operators.AssignmentOperators
         {
             var _value = RightNode.Evaluate(table);
             var _idLeft = GetLeftValue();
-            table.AddSymbol(_idLeft.Name,_value);
+            //table.AddSymbol(_idLeft.Name,_value);
+            _idLeft.SetValue(_value, table);
             return _value;
         }
     }
