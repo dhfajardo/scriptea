@@ -23,9 +23,19 @@ namespace scriptea.Parsing.Others
                     var _result = (Accesor) this.Process(parser, null);
                     if (_result is FunctionAccesor)
                     {
-                        var _function = (FunctionAccesor) _result;
-                        _function.Name = _idName;
-                        return _function;
+                        if (((FunctionAccesor)_result).Name=="function")
+                        {
+
+                            var _function = (FunctionAccesor)_result;
+                            _function.Name = _idName;
+                            return _function; 
+                        }
+                        else
+                        {
+                            var _field = new FieldAccesor { Name = _idName };
+                            _field.NextAccesor = _result;
+                            return _field;
+                        }
                     }
                     else
                     {
@@ -66,7 +76,7 @@ namespace scriptea.Parsing.Others
                 if (parser.CurrenToken.Type == TokenType.PmRightParent)
                 {
                     parser.NextToken();
-                    var _function = new FunctionAccesor {Name = "",ParameterList = _listEp};
+                    var _function = new FunctionAccesor {Name = "function",ParameterList = _listEp};
                     _function.NextAccesor = (Accesor)this.Process(parser, parameters);
                     return _function;
                 }

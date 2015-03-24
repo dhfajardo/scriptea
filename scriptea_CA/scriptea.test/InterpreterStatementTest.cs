@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using scriptea.Lexical;
 using scriptea.Lexical.Input;
@@ -412,6 +415,7 @@ namespace scriptea.test
                                                                 catch(err)
                                                                 {
                                                                     msg = err.Message[0].ToString();
+                                                                    //msg = System.int.Parse('3');
                                                                     id=44;
                                                                 }")));
             parser.StartINTerminal = new StatementList();
@@ -421,5 +425,74 @@ namespace scriptea.test
                 statementNode.Interpret(_SymbolTable);
             }
         }
+
+        [TestMethod]
+        public void InterpreterSetValueIndex()
+        {
+            SymbolTable _SymbolTable = new SymbolTable();
+            var parser = new Parser(new Lexer(new InputStream(@" var id=0;
+                                                                var msg =''; 
+                                                                var tst = 0;
+                                                                try
+                                                                {
+                                                                    throw new System.Exception('hola');
+                                                                }
+                                                                catch(err)
+                                                                {
+                                                                    var _array = [0];
+                                                                    _array[0] = 'this is a array';
+                                                                    //msg = err.Message[0].ToString();
+                                                                    msg = System.Int32.Parse('3');
+                                                                    id=44;
+                                                                }")));
+            parser.StartINTerminal = new StatementList();
+            var _result = (List<StatementNode>)parser.Parse();
+            foreach (var statementNode in _result)
+            {
+                statementNode.Interpret(_SymbolTable);
+            }
+        }
+
+        [TestMethod]
+        public void InterpreterGetFunctionProperty()
+        {
+            SymbolTable _SymbolTable = new SymbolTable();
+            var parser = new Parser(new Lexer(new InputStream(@" var id=0;
+                                                                var msg =''; 
+                                                                var tst = 0;
+                                                                msg = System.DateTime.Now;
+                                                                ")));
+            parser.StartINTerminal = new StatementList();
+            var _result = (List<StatementNode>)parser.Parse();
+            foreach (var statementNode in _result)
+            {
+                statementNode.Interpret(_SymbolTable);
+            }
+        }
+
+        [TestMethod]
+        public void InterpreterSetFunction()
+        {
+            scriptea.Test.AlanTst = "que onda";
+            SymbolTable _SymbolTable = new SymbolTable();
+            var parser = new Parser(new Lexer(new InputStream(@" var id=0;
+                                                                var msg =''; 
+                                                                var tst = 0;
+                                                                msg = System.DateTime.Now;
+                                                                scriptea.Test.AlanTst = 'hola que ondas';
+                                                                ")));
+            parser.StartINTerminal = new StatementList();
+            var _result = (List<StatementNode>)parser.Parse();
+            foreach (var statementNode in _result)
+            {
+                statementNode.Interpret(_SymbolTable);
+            }
+            
+        }
+    }
+
+    public class DateAlan
+    {
+        public string algo { get; set; }
     }
 }

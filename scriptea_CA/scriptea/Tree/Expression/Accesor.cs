@@ -10,14 +10,64 @@ namespace scriptea.Tree.Expression
     {
         public Accesor NextAccesor { get; set; }
         public abstract dynamic Evaluate(dynamic value, SymbolTable table);
-        public abstract void SetValue(object value, SymbolTable table);
+        public abstract void SetValue(dynamic value, SymbolTable table, dynamic valueAssig);
     }
 
     public class FunctionAccesor : Accesor
     {
         public string Name { get; set; }
+        public bool IsStatic { get; set; }
         public List<ExpressionNode> ParameterList { get; set; }
         public override dynamic Evaluate(dynamic value, SymbolTable table)
+        {
+            if (!IsStatic)
+            {
+                return CallInstantMethod(value, table);
+            }
+            else
+            {
+                return CallStaticMethod(value, table);
+            }
+
+        }
+
+        private dynamic CallStaticMethod(dynamic value, SymbolTable table)
+        {
+            List<object> evalParameters = new List<object>();
+            foreach (var expressionNode in ParameterList)
+            {
+                evalParameters.Add(expressionNode.Evaluate(table));
+            }
+            Type type = Type.GetType(value);
+            MethodInfo[] methodInfos = type.GetMethods();
+            MethodInfo functionCall = null;
+            foreach (var methodInfo in methodInfos)
+            {
+                if (FunctionMatch(methodInfo, Name, evalParameters))
+                {
+                    functionCall = methodInfo;
+                    break;
+                }
+            }
+            if (functionCall != null)
+            {
+                var _result = functionCall.Invoke(null, evalParameters.ToArray());/*null static*/
+                if (NextAccesor != null)
+                {
+                    return NextAccesor.Evaluate(_result, table);
+                }
+                else
+                {
+                    return _result;
+                }
+            }
+            else
+            {
+                throw new Exception("Function: " + Name + " Not exists");
+            }
+        }
+
+        private dynamic CallInstantMethod(dynamic value, SymbolTable table)
         {
             List<object> evalParameters = new List<object>();
             foreach (var expressionNode in ParameterList)
@@ -37,7 +87,7 @@ namespace scriptea.Tree.Expression
             }
             if (functionCall != null)
             {
-                var _result = functionCall.Invoke(value, evalParameters.ToArray());/*null static*/
+                var _result = functionCall.Invoke(value, evalParameters.ToArray()); /*null static*/
                 if (NextAccesor != null)
                 {
                     return NextAccesor.Evaluate(_result, table);
@@ -74,16 +124,70 @@ namespace scriptea.Tree.Expression
             return true;
         }
 
-        public override void SetValue(object value, SymbolTable table)
+        public override void SetValue(dynamic value, SymbolTable table, dynamic valueAssig)
         {
-            throw new NotImplementedException();
+            throw new Exception("The functions are not assigned");
         }
     }
 
     public class FieldAccesor : Accesor
     {
         public string Name { get; set; }
+        public bool IsStatic { get; set; }
+
         public override dynamic Evaluate(dynamic value, SymbolTable table)
+        {
+            if (!IsStatic)
+            {
+                return CallFunctionField(value, table);
+            }
+            else
+            {
+                return CallStaticField(value, table);
+            }
+        }
+
+        private dynamic CallStaticField(dynamic value, SymbolTable table)
+        {
+            Type type = Type.GetType(value);//value.GetType();
+            var field = type.GetField(Name, BindingFlags.Public | BindingFlags.Instance |
+                                            BindingFlags.Static | BindingFlags.NonPublic);
+            if (field != null)
+            {
+                var fieldvalue = field.GetValue(null);
+                if (NextAccesor != null)
+                {
+                    return NextAccesor.Evaluate(fieldvalue, table);
+                }
+                else
+                {
+                    return fieldvalue;
+                }
+            }
+            else
+            {
+                var property = type.GetProperty(Name, BindingFlags.Public | BindingFlags.Instance |
+                                                      BindingFlags.Static | BindingFlags.NonPublic);
+                if (property != null)
+                {
+                    var fieldvalue = property.GetValue(null, null);
+                    if (NextAccesor != null)
+                    {
+                        return NextAccesor.Evaluate(fieldvalue, table);
+                    }
+                    else
+                    {
+                        return fieldvalue;
+                    }
+                }
+                else
+                {
+                    throw new Exception(Name + " Not exits");
+                }
+            }
+        }
+
+        private dynamic CallFunctionField(dynamic value, SymbolTable table)
         {
             Type type = value.GetType();
             var field = type.GetField(Name, BindingFlags.Public | BindingFlags.Instance |
@@ -103,7 +207,7 @@ namespace scriptea.Tree.Expression
             else
             {
                 var property = type.GetProperty(Name, BindingFlags.Public | BindingFlags.Instance |
-                                           BindingFlags.Static | BindingFlags.NonPublic);
+                                                      BindingFlags.Static | BindingFlags.NonPublic);
                 if (property != null)
                 {
                     var fieldvalue = property.GetValue(value, null);
@@ -114,7 +218,7 @@ namespace scriptea.Tree.Expression
                     else
                     {
                         return fieldvalue;
-                    } 
+                    }
                 }
                 else
                 {
@@ -123,42 +227,31 @@ namespace scriptea.Tree.Expression
             }
         }
 
-        public override void SetValue(object value, SymbolTable table)
+        public override void SetValue(dynamic value, SymbolTable table, dynamic valueAssig)
         {
-            Type type = value.GetType();
-            var field = type.GetField(Name, BindingFlags.Public | BindingFlags.Instance |
-                                            BindingFlags.Static | BindingFlags.NonPublic);
-            if (field != null)
+            if (NextAccesor == null)
             {
-                var fieldvalue = field.GetValue(value);
-                if (NextAccesor != null)
+                Type type = Type.GetType(value);
+                var field = type.GetField(Name, BindingFlags.Public | BindingFlags.Instance |
+                                                BindingFlags.Static | BindingFlags.NonPublic);
+                if (field != null)
                 {
-                     NextAccesor.SetValue(fieldvalue, table);
+                    var fieldvalue = field.GetValue(value);
+                    field.SetValue(null, valueAssig);
                 }
                 else
                 {
-                    table.AddSymbol(Name, fieldvalue);
-                }
-            }
-            else
-            {
-                var property = type.GetProperty(Name, BindingFlags.Public | BindingFlags.Instance |
-                                           BindingFlags.Static | BindingFlags.NonPublic);
-                if (property != null)
-                {
-                    var fieldvalue = property.GetValue(value, null);
-                    if (NextAccesor != null)
+                    var property = type.GetProperty(Name, BindingFlags.Public | BindingFlags.Instance |
+                                                     BindingFlags.Static | BindingFlags.NonPublic);
+                    if (property != null)
                     {
-                        NextAccesor.SetValue(fieldvalue, table);
+                        var fieldvalue = property.GetValue(value, null);
+                        property.SetValue(null,valueAssig,null);
                     }
                     else
                     {
-                        table.AddSymbol(Name,fieldvalue);
+                        throw new Exception(Name + " Not exits");
                     }
-                }
-                else
-                {
-                    throw new Exception(Name + " Not exits");
                 }
             }
         }
@@ -181,9 +274,20 @@ namespace scriptea.Tree.Expression
             }
         }
 
-        public override void SetValue(object value, SymbolTable table)
+        public override void SetValue(dynamic value, SymbolTable table, dynamic valueAssig)
         {
-            throw new NotImplementedException();
+            if (NextAccesor == null)
+            {
+                var _array = table.GetSymbol(valueAssig);
+                var index = IndexList.Evaluate(table);
+                _array[index] = value;
+            }
+            else
+            {
+                var _index = IndexList.Evaluate(table);
+                var indexValue = value[_index];
+                NextAccesor.SetValue(value, table, indexValue);
+            }
         }
     }
 }
