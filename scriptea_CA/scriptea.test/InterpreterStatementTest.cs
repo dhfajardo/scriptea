@@ -491,8 +491,8 @@ namespace scriptea.test
         }
     }
 
-    public class DateAlan
+    public class FuntTest
     {
-        public string algo { get; set; }
+        public string PropTst { get; set; }
     }
 }
