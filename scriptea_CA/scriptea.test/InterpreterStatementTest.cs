@@ -27,7 +27,7 @@ namespace scriptea.test
             var _result =(List<StatementNode>) parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -40,7 +40,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -52,7 +52,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -64,7 +64,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -77,7 +77,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -97,7 +97,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -123,7 +123,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>) parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -142,7 +142,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -163,7 +163,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -189,7 +189,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -207,7 +207,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -228,7 +228,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -255,7 +255,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -277,7 +277,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -304,7 +304,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -327,7 +327,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -350,7 +350,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -374,7 +374,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -398,7 +398,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
         [TestMethod]
@@ -422,7 +422,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -449,7 +449,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -466,7 +466,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
         }
 
@@ -485,7 +485,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable);
+                statementNode.Interpret(_SymbolTable, TODO);
             }
             
         }

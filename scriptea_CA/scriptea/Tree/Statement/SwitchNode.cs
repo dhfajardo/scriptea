@@ -7,18 +7,18 @@ namespace scriptea.Tree.Statement
     {
         public ExpressionNode EvaluationNode { get; set; }
         public BaseCaseNode /*CaseNode*/ CaseBlockNode { get; set; }
-        public override void Interpret(SymbolTable table)
+        public override void Interpret(SymbolTable table, FunctionTable functionTable)
         {
             var _evaluation = EvaluationNode.Evaluate(table);
-            bool _result = InterpreterCase(CaseBlockNode, EvaluationNode, table, "case");
+            bool _result = InterpreterCase(CaseBlockNode, EvaluationNode, table, functionTable, "case");
             if (!_result)
             {
-                _result = InterpreterCase(CaseBlockNode, EvaluationNode, table, "defauld");
+                _result = InterpreterCase(CaseBlockNode, EvaluationNode, table, functionTable, "defauld");
             }
 
         }
 
-        private bool InterpreterCase(BaseCaseNode _case, ExpressionNode evaluationSwitch, SymbolTable table, string flag)
+        private bool InterpreterCase(BaseCaseNode _case, ExpressionNode evaluationSwitch, SymbolTable table,FunctionTable functionTable, string flag)
         {
             if (flag == "case")
             {
@@ -30,7 +30,7 @@ namespace scriptea.Tree.Statement
                         {
                             foreach (var statementNode in ((CaseNode)_case).CodeNode)
                             {
-                                statementNode.Interpret(table);
+                                statementNode.Interpret(table, functionTable);
                             }
                         }
                         catch (BreakException)
@@ -41,12 +41,12 @@ namespace scriptea.Tree.Statement
                     }
                     else
                     {
-                        return InterpreterCase(_case.NextCase, evaluationSwitch, table, "case");
+                        return InterpreterCase(_case.NextCase, evaluationSwitch, table, functionTable, "case");
                     }
                 }
                 else if(_case is DefauldNode)
                 {
-                    return InterpreterCase(_case.NextCase, evaluationSwitch, table, "case");
+                    return InterpreterCase(_case.NextCase, evaluationSwitch, table, functionTable, "case");
                 }
                 else
                 {
@@ -57,7 +57,7 @@ namespace scriptea.Tree.Statement
             {
                 if (!(_case is DefauldNode))
                 {
-                    return InterpreterCase(_case.NextCase, evaluationSwitch, table, "defauld");
+                    return InterpreterCase(_case.NextCase, evaluationSwitch, table,functionTable, "defauld");
                 }
                 else
                 {
@@ -66,7 +66,7 @@ namespace scriptea.Tree.Statement
 
                         foreach (var statementNode in ((DefauldNode)_case).CodeNode)
                         {
-                            statementNode.Interpret(table);
+                            statementNode.Interpret(table, functionTable);
                         }
                     }
                     catch (BreakException)

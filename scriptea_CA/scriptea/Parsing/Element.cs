@@ -27,8 +27,8 @@ namespace scriptea.Parsing
                         {
                             parser.NextToken();
                             var _statements = (List<StatementNode>) new CompoundStatement().Process(parser, parameters);
-                            var _id = new IdNode {Name = _idName};
-                            return new FunctionDeclarationNode {Id = _id, ParameterList = _parameters, Statements = _statements};
+                            //var _id = new IdNode {Name = _idName};
+                            return new FunctionDeclarationNode {Id = _idName, ParameterList = _parameters, Statements = _statements};
                         }
                         else
                         {

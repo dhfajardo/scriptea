@@ -10,7 +10,7 @@ namespace scriptea.Tree.Statement
     {
         public ExpressionNode EvaluationNode { get; set; }
         public List<StatementNode> CodeNode { get; set; }
-        public override void Interpret(SymbolTable table)
+        public override void Interpret(SymbolTable table, FunctionTable functionTable)
         {
             while (EvaluationNode.Evaluate(table))
             {
@@ -18,7 +18,7 @@ namespace scriptea.Tree.Statement
                 {
                     foreach (var statementNode in CodeNode)
                     {
-                        statementNode.Interpret(table);
+                        statementNode.Interpret(table, functionTable);
                     }
                 }
                 catch (BreakException)

@@ -8,11 +8,11 @@ namespace scriptea.Tree.Others
     {
         public IdNode Id { get; set; }
         public List<StatementNode> CodeCatch { get; set; }
-        public override void Interpret(SymbolTable table)
+        public override void Interpret(SymbolTable table, FunctionTable functionTable)
         {
             foreach (var statementNode in CodeCatch)
             {
-                statementNode.Interpret(table);
+                statementNode.Interpret(table, functionTable);
             }
         }
     }

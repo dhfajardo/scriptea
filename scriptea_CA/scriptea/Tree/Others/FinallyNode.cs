@@ -7,11 +7,11 @@ namespace scriptea.Tree.Others
     public class FinallyNode:StatementNode
     {
         public List<StatementNode> FinallyCode { get; set; }
-        public override void Interpret(SymbolTable table)
+        public override void Interpret(SymbolTable table, FunctionTable functionTable)
         {
             foreach (var statementNode in FinallyCode)
             {
-                statementNode.Interpret(table);
+                statementNode.Interpret(table, functionTable);
             } 
         }
     }
