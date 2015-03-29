@@ -22,12 +22,13 @@ namespace scriptea.test
         public void InterpreterVarOrExp()
         {
             SymbolTable _SymbolTable=new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream("a = 1;b=2;a+=1;")));
             parser.StartINTerminal = new StatementList();
             var _result =(List<StatementNode>) parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
@@ -35,36 +36,39 @@ namespace scriptea.test
         public void InterpreterOP_1s()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream("a = 1;b=a++;c=++a;")));
             parser.StartINTerminal = new StatementList();
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterIf()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream("a = 1;if(a>0)b=7;else b=9;")));
             parser.StartINTerminal = new StatementList();
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterIfNot()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream("a = 1;if(a<1)b=7;else b=9;")));
             parser.StartINTerminal = new StatementList();
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
@@ -72,18 +76,20 @@ namespace scriptea.test
         public void InterpreterWhile()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream("a = 1;b=0;while(a<5){ b+=2;a++;}")));
             parser.StartINTerminal = new StatementList();
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterWhileBreak()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@"a = 1;
                                                                 b=0;
                                                                 while(true)
@@ -97,7 +103,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
@@ -105,6 +111,7 @@ namespace scriptea.test
         public void InterpreterWhileContinue()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@"a = 1;
                                                                 b=0;
                                                                 while(true)
@@ -123,7 +130,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>) parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
@@ -131,6 +138,7 @@ namespace scriptea.test
         public void InterpreterDoWhile()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@"a = 1;
                                                                 b=0;
                                                                 do
@@ -142,13 +150,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
         [TestMethod]
         public void InterpreterDoWhileBreak()
         {
+            FunctionTable functionTable = new FunctionTable();
             SymbolTable _SymbolTable = new SymbolTable();
             var parser = new Parser(new Lexer(new InputStream(@"a = 1;
                                                                 b=0;
@@ -163,13 +172,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
         [TestMethod]
         public void InterpreterDoWhileContinue()
         {
+            FunctionTable functionTable = new FunctionTable();
             SymbolTable _SymbolTable = new SymbolTable();
             var parser = new Parser(new Lexer(new InputStream(@"a = 1;
                                                                 b=0;
@@ -189,12 +199,13 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterFor()
         {
+            FunctionTable functionTable = new FunctionTable();
             SymbolTable _SymbolTable = new SymbolTable();
             var parser = new Parser(new Lexer(new InputStream(@"var a=0;
                                                                 for(id=0;id<10;id++)
@@ -207,13 +218,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterForBreak()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@"var a=0;
                                                                 for(id=0;id<10;id++)
                                                                 {
@@ -228,13 +240,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterForContinue()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@"var a=0;
                                                                 var b=10;
                                                                 for(id=0;id<10;id++)
@@ -255,13 +268,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterSwitch()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=1;
                                                                 var count = 3;
                                                                 switch(id)
@@ -277,12 +291,13 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterSwitchDefauld()
         {
+            FunctionTable functionTable = new FunctionTable();
             SymbolTable _SymbolTable = new SymbolTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=2;
                                                                 var count = 2;
@@ -304,7 +319,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
@@ -312,6 +327,7 @@ namespace scriptea.test
         public void InterpreterTry()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=0;
                                                                 var msg =''; 
                                                                 try
@@ -327,13 +343,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterTryThrow()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=0;
                                                                 var msg =''; 
                                                                 try
@@ -350,13 +367,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterIdAccesor()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=0;
                                                                 var msg =''; 
                                                                 var tst = 0;
@@ -374,13 +392,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterIdAccesor2()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=0;
                                                                 var msg =''; 
                                                                 var tst = 0;
@@ -398,13 +417,14 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
         [TestMethod]
         public void InterpreterIdAccesorIndex()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=0;
                                                                 var msg =''; 
                                                                 var tst = 0;
@@ -422,7 +442,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
@@ -430,6 +450,7 @@ namespace scriptea.test
         public void InterpreterSetValueIndex()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=0;
                                                                 var msg =''; 
                                                                 var tst = 0;
@@ -449,7 +470,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
@@ -457,6 +478,7 @@ namespace scriptea.test
         public void InterpreterGetFunctionProperty()
         {
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=0;
                                                                 var msg =''; 
                                                                 var tst = 0;
@@ -466,7 +488,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
         }
 
@@ -475,6 +497,7 @@ namespace scriptea.test
         {
             scriptea.Test.AlanTst = "que onda";
             SymbolTable _SymbolTable = new SymbolTable();
+            FunctionTable functionTable = new FunctionTable();
             var parser = new Parser(new Lexer(new InputStream(@" var id=0;
                                                                 var msg =''; 
                                                                 var tst = 0;
@@ -485,7 +508,7 @@ namespace scriptea.test
             var _result = (List<StatementNode>)parser.Parse();
             foreach (var statementNode in _result)
             {
-                statementNode.Interpret(_SymbolTable, TODO);
+                statementNode.Interpret(_SymbolTable, functionTable);
             }
             
         }
